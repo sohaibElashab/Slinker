@@ -1,0 +1,11 @@
+django => python -m pip install 
+
+#mongodb setup
+PyMongo => pip install pymongo[snappy,gssapi,srv,tls]
+dnspython => pip install dnspython
+Djongo => pip install djongo
+
+#restframework
+djangorestframework => pip install djangorestframework
+#for auth tokens
+knox => pip install django-rest-knox

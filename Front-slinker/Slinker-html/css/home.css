@@ -1,0 +1,156 @@
+@import "fonts/fontface.css";
+:root {
+  --main-bg-color: #503e9d;
+  --font-primary: "CircularStd";
+}
+
+body,
+html {
+    margin: 0;
+    font-family: var(--font-primary);
+    overflow-x: hidden;
+}
+.containe__home{
+  position: relative;
+  width: 100vw;
+  height: 50vh;
+}
+.top__home{
+  background: url("./../Assets/cover.png") ;
+  background-size: cover; 
+  background-position: bottom;
+}
+.layout__home{
+  background-color: var(--main-bg-color);
+  position: absolute;
+  mix-blend-mode: multiply;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.header__home{
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+.topbar__home{
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo__home {
+  margin-left: 50px;
+}
+.compte__home {
+  margin-right: 50px;
+  color: white;
+}
+.compte__home i{
+  font-size: 26px;
+}
+.compte__home span{
+  background: #C5ADD2;
+  padding: 3px 6px;
+  border-radius: 5px;
+  margin-left: 5px;
+  position: relative;
+  bottom: 3px;
+}
+
+.search__home{
+  margin: auto;
+  color: white;
+  text-align: center;
+  width: 50%;
+}
+.containe__upgrade__home {
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+.search__upgrade__home{
+  margin: auto;
+  text-align: center;
+  padding: 40px 0px;
+  filter: blur(5px);
+}
+.upgrade__home{
+  position: absolute;
+  height: 55%;
+  width: 50%;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.upgrade__home button{
+  width: 180px;
+  height: 55px;
+  background-color: var(--main-bg-color);
+  outline: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  letter-spacing: 1px;
+  font-size: 22px;
+}
+.search__upgrade__home h1{
+  color: var(--main-bg-color);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 72px; 
+  margin: 20px 0px 20px 0px;
+}
+.search__home h1{
+  font-style: normal;
+  font-weight: bold;
+  margin: 0px 0px 20px 0px;
+}
+
+
+.search__home span , .search__upgrade__home span{
+  font-style: italic;
+  font-weight: 500;
+  font-size: 30px;
+  position: relative;
+  bottom: 15px;
+}
+.searchBar__home{
+  background: white;
+  margin: 0px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.searchBar__home input{
+  border: none;
+  color: #797876;
+  width: 100%;
+  padding: 20px;
+}
+.searchBar__home textarea{
+  width: 80%;
+  height: 140px;
+  padding: 10px 0px 0px 10px;
+  border: 1px solid #797876;
+}
+.searchBar__home input:focus {
+  outline: none;
+}
+.searchBar__home button {
+  padding: 12px 30px;
+  background-image: linear-gradient(to right, var(--main-bg-color), #c5add2);
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin: 7px;
+}
+.searchBar__home .apgrade__button {
+  height: 150px;
+  margin: 0px;
+}
+

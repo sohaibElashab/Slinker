@@ -1,0 +1,274 @@
+@import "fonts/fontface.css";
+
+:root {
+  --main-bg-color: #503e9d;
+  --font-primary: "CircularStd";
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-primary);
+  }
+  
+  main {
+    height: 100vh;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+  }
+  .main__ISC {
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #f9fafb;
+    box-shadow: 0px 10px 20px 0px rgb(0 0 0 / 5%) inset;
+  }
+  .content__ISC {
+    width: 100%;
+  
+    height: 80vh;
+  }
+  .content__header__ISC {
+    width: 100%;
+    height: 22%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 30px;
+  }
+  .must__subscribe__ISC {
+    height: 100%;
+    width: 47%;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 10px;
+    background: #ffffff;
+    box-shadow: 0px 15px 50px rgba(87, 105, 177, 0.06);
+    border-radius: 10px;
+  }
+  .point__ISC {
+    text-align: end;
+    padding-right: 5px;
+    color: #797876;
+    cursor: pointer;
+  }
+  .must__subscribe__title__ISC {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.5em;
+    line-height: 35px;
+    padding-left: 15px;
+  }
+  .must__subscribe__text__ISC {
+    font-style: normal;
+    font-weight: 450;
+    font-size: 1em;
+    color: #797876;
+    padding: 0px 50px 0px 0px;
+  }
+  .button__control__ISC {
+    height: 100%;
+    width: 49%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .button__control__recherch__ISC {
+    background: #31ba86;
+    color: #fff;
+  }
+  .button__control__download__ISC {
+    background: #fff;
+    color: #31ba86;
+  }
+  .control__ISC {
+    height: 100%;
+    width: 24%;
+    box-shadow: 0px 15px 50px rgb(87 105 177 / 6%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1.4em;
+    line-height: initial;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .control__ISC i {
+    font-size: 1.5em;
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    padding-bottom: 10px;
+  }
+  .button__control__upgrade__ISC {
+    height: 100%;
+    width: 48%;
+    background-image: url(../Assets/upgrad_cover.png);
+    background-size: cover;
+    box-shadow: 0px 15px 50px rgb(87 105 177 / 6%);
+    border-radius: 10px;
+    font-size: 1em;
+    line-height: 25px;
+    text-align: center;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .button__control__upgrade__ISC button {
+    width: 140px;
+    height: 40px;
+    background: #ffffff;
+    border-radius: 10px;
+    border: none;
+    color: #503e9d;
+  }
+  .resultes__ISC {
+    width: 100%;
+    height: 78%;
+    display: flex;
+    padding: 20px 30px;
+    font-weight: 500;
+    line-height: 25px;
+    color: #000000;
+    justify-content: space-between;
+  }
+  .amazon__products__ISC {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .table__amazon__products__ISC {
+    width: 100%;
+    height: 95%;
+    background: #ffffff;
+    box-shadow: 0px 15px 30px rgba(87, 105, 177, 0.06);
+    border-radius: 10px;
+  }
+  .amazon__products__header__ISC {
+    display: flex;
+    margin-top: 8px;
+    font-size: 13px;
+    flex-direction: column;
+    background: #ffffff;
+    box-shadow: 0px 10px 20px rgba(87, 105, 177, 0.05);
+  }
+  .amazon__products__header__ISC hr {
+    width: 80%;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+  .table__filter__ISC {
+    display: flex;
+    font-size: 0.9em;
+    justify-content: space-around;
+    padding: 10px;
+  }
+  .products__status__ISC {
+    display: flex;
+    justify-content: space-evenly;
+    color: #797876;
+    align-items: center;
+  }
+  .products__status__ISC span {
+    padding-right: 10px;
+    cursor: pointer;
+  }
+  .products__status__ISC select {
+    width: 120px;
+  }
+  .red__ISC {
+    color: #f53b12;
+  }
+  .blue__ISC {
+    color: #4a61bd;
+  }
+  .green__ISC {
+    color: #31ba86;
+  }
+  .red__bg__ISC {
+    background-color: #f53b12;
+    color: #fff;
+  }
+  .blue__bg__ISC {
+    background-color: #4a61bd;
+    color: #fff;
+  }
+  .green__bg__ISC {
+    background-color: #31ba86;
+    color: #fff;
+  }
+  .gris__bg__ISC {
+    background-color: #797876;
+    color: #fff;
+  }
+  .table__header__ISC {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: #797876;
+  }
+  
+  .table__header__ISC span {
+    width: 15%;
+    text-align: center;
+  }
+  .amazon__product__ISC {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 10px;
+    line-height: 1.3;
+    padding: 10px 0px;
+  }
+  .amazon__product__ISC span {
+    width: 12%;
+    text-align: center;
+  }
+  .amazon__product__ISC span i {
+    background: #ffffff;
+    border: 0.5px solid #4a61bd;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgb(74 97 189 / 10%);
+    border-radius: 3px;
+    padding: 5px 10px;
+    color: #4a61bd;
+  }
+  .amazon__product__ISC span img {
+    width: 50px;
+    height: 50px;
+  }
+  .text1__ISC {
+    text-align: start !important;
+  }
+  .text2__ISC {
+    border-radius: 5px;
+    padding: 2px 0px;
+  }
+  .text3__ISC {
+    border-radius: 5px;
+    padding: 2px 0px;
+  }
+  .text4__ISC{
+    background: #ffffff;
+    box-shadow: 0px 4px 20px rgb(87 105 177 / 10%);
+    border-radius: 10px;
+    padding: 10px;
+    color: #4a61bd;
+    position: relative;
+    cursor: pointer;
+  }
+  .amazon__products__body__ISC {
+      height: 60%;
+      overflow: auto;
+  }
+  
+  .amazon__products__body__ISC::-webkit-scrollbar {
+    width: 5px;
+  }
+  .amazon__products__body__ISC::-webkit-scrollbar-thumb {
+    background-color: #9B92C1;
+    border-radius: 10px;
+  }

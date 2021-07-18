@@ -1,0 +1,107 @@
+@import "fonts/fontface.css";
+:root {
+  --main-bg-color: #503e9d;
+  --font-primary: "CircularStd";
+}
+
+html {
+    font-family: var(--font-primary);
+    overflow-x: hidden;
+}
+.top-menu {
+  position: relative;
+}
+
+.topcorner_logo {
+  position: absolute;
+  top: 48px;
+  left: 6.7%;
+  z-index: 1;
+}
+
+.logo {
+  width: 10rem;
+}
+/* scanning page */
+
+.scanning_logo {
+  display: flex;
+  justify-content: center;
+}
+.top_logo {
+  position: relative;
+  top: 50px;
+}
+.scanning {
+  position: relative;
+  top: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 51px;
+  text-align: center;
+  color: #000000;
+}
+.site__title {
+  color: var(--main-bg-color);
+}
+.time {
+  font-style: normal;
+  font-weight: 450;
+  font-size: 22px;
+  line-height: 28px;
+  text-align: center;
+  color: #797876;
+  margin: 20px 0px 0px 0px;
+}
+
+.resultes {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 50px 0px;
+}
+
+.resultes i {
+  font-size: 3.5em;
+  padding-bottom: 10px;
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 10px;
+  position: relative;
+  top: 20px;
+}
+
+.in_progress {
+  color: #c5add2;
+}
+.in_progress__shema {
+  background-image: linear-gradient(to right, var(--main-bg-color), #c5add2);
+}
+.done {
+  color: var(--main-bg-color);
+}
+.done__shema {
+  background-color: var(--main-bg-color);
+}
+.not__yet {
+  color: #c2c2c2;
+}
+.not__yet__shema {
+  background-color: #c2c2c2;
+}
+.shema {
+  height: 5px;
+  width: 180px;
+}

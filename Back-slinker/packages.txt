@@ -9,3 +9,7 @@ Djongo => pip install djongo
 djangorestframework => pip install djangorestframework
 #for auth tokens
 knox => pip install django-rest-knox
+
+#faceboook login
+react-facebook-login => npm install react-facebook-login --force
+facebook-sdk => pip install facebook-sdk

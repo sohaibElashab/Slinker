@@ -45,6 +45,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     notif = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
+    auth_provider = models.CharField(max_length=255, blank=False,null=False, default='email')
+
 
     USERNAME_FIELD = 'email'
     # REQUIRED_FIELDS = ['username']

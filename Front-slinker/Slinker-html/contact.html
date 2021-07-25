@@ -1,88 +1,64 @@
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/submain.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/submain.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
 
     <title>Document</title>
-</head>
+  </head>
 
-<body>
-
-
+  <body>
     <section class="top-menu">
-        <div class="topcorner_logo"><a href=""><img class="logo" src="Assets/Slinker logo.svg"Eysi"></a></div>
+      <div class="topcorner_logo">
+        <a href=""><img class="logo" src="Assets/Slinker logo.svg"Eysi"></a>
+      </div>
     </section>
     <section class="contact">
-        <div class="contact__leftbg">
-            <div class="contact__text ">
-                <h2 class="signup__title"> Leave us a message for any information. </h2>
-                <p class="signup__subtitle">Or send email directly from you mail box.</p>
+      <div class="contact__leftbg">
+        <div class="contact__text">
+          <h2 class="signup__title">Leave us a message for any information.</h2>
+          <p class="signup__subtitle">
+            Or send email directly from you mail box.
+          </p>
+        </div>
+      </div>
+      <div class="signup__form">
+        <div class="wrapper container-contact">
+          <form action="#">
+            <div class="form-row">
+              <div class="input-data input-data_contact">
+                <input type="text" required />
+                <div class="underline"></div>
+                <label for=""> Full Name</label>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="input-data input-data_contact">
+                <input type="text" required />
+                <div class="underline"></div>
+
+                <label for="">Email Address</label>
+              </div>
+            </div>
+            <div class="form-row textarea-row">
+              <div class="input-data input-data_contact textarea">
+                <textarea rows="8" cols="80" wrap="off" required></textarea>
+                <br />
+                <div class="underline"></div>
+                <label for="">Write your message</label>
+              </div>
             </div>
 
-        </div>
-
-
-        <div class="signup__form">
-
-
-
-
-
-            <div class=" wrapper container-contact">
-                <form action="#">
-
-                    <div class="form-row">
-                        <div class="input-data input-data_contact">
-                            <input type="text" required>
-                            <div class="underline">
-                            </div>
-                            <label for=""> Full Name</label>
-                        </div>
-
-                    </div>
-                    <div class="form-row">
-                        <div class="input-data input-data_contact">
-                            <input type="text" required>
-                            <div class="underline">
-                            </div>
-
-                            <label for="">Email Address</label>
-
-                        </div>
-                    </div>
-                    <div class="form-row textarea-row">
-                        <div class="input-data input-data_contact textarea">
-
-                            <textarea rows="8" cols="80" wrap='off' required></textarea>
-                            <br />
-                            <div class="underline">
-                            </div>
-                            <label for="">Write your message</label>
-                        </div>
-                    </div>
-
-
-
-
-                    <div class="form-btn">
-                        <button type="submit" class="btn--register">Send</button>
-
-                    </div>
-                </form>
+            <div class="form-btn">
+              <button type="submit" class="btn--register">Send</button>
             </div>
-
-
+          </form>
         </div>
-
-
-
+      </div>
     </section>
-
-</body>
-
+  </body>
 </html>

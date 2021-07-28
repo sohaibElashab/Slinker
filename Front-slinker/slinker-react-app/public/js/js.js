@@ -49,7 +49,9 @@ const thumbSize = 10
 const range = document.querySelector('input[type=range]')
 const tooltip = document.querySelector('.tooltip')
 
-range.addEventListener('input', e => {
-    const ratio = (range.value - range.min) / (range.max - range.min)
-    range.style.left = `calc(${thumbSize / 10}px + ${ratio * 100} - ${ratio} * ${thumbSize}px)`
-});
+if(range){
+    range.addEventListener('input', e => {
+        const ratio = (range.value - range.min) / (range.max - range.min)
+        range.style.left = `calc(${thumbSize / 10}px + ${ratio * 100} - ${ratio} * ${thumbSize}px)`
+    });
+}

@@ -1,4 +1,4 @@
-django => python -m pip install 
+django => python -m pip install django
 
 #mongodb setup
 PyMongo => pip install pymongo[snappy,gssapi,srv,tls]
@@ -13,3 +13,5 @@ knox => pip install django-rest-knox
 #faceboook login
 react-facebook-login => npm install react-facebook-login --force
 facebook-sdk => pip install facebook-sdk
+
+cors => pip install django-cors-headers

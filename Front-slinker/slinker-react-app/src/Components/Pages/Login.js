@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import LeftSectionSign from "../Layouts/LeftSectionSign";
 import SocialLogin from "../Layouts/SocialLogin";
 import axios from "axios";
@@ -10,29 +10,23 @@ const Login = () => {
 
   const changePassword = (e) => {
     setpassword(e.target.value);
-    // alert(password)
-    console.log("password");
-    return false;
   };
   const changeEmail = (e) => {
     setemail(e.target.value);
   };
-
+  let history = useHistory();
   const UserLogin = (e) => {
     e.preventDefault();
-    // console.log("email");
-    // console.log(password);
-    // console.log("zzzzzzzzz");
-    // axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
     axios
       .post("http://127.0.0.1:8000/api/auth/login", {
         email: email,
         password: password,
       })
       .then((response) => {
-        console.log("zzz");
+        console.log("response");
         console.log(response);
-        alert(response.data);
+        sessionStorage.setItem("token_user", response.data.token);
+        history.push("/");
       })
       .catch((err) => {
         console.log(err);

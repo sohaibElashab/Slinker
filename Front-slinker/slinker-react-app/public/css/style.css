@@ -21,6 +21,14 @@ html {
   margin: 0;
   font-family: var(--font-primary);
 }
+
+body::-webkit-scrollbar {
+  width: 5px;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #9b92c1;
+  border-radius: 10px;
+}
 /* ------------------------------------------- content css ------------------------------------------- */
 
 .content {
@@ -394,9 +402,9 @@ html {
   position: absolute;
   content: "";
   display: block;
-  top: -1px;
-  left: 6px;
-  width: 5px;
+  top: 2px;
+  left: 8px;
+  width: 7px;
   height: 15px;
   border-style: solid;
   border-color: var(--main-bg-color);
@@ -797,6 +805,7 @@ form .form-row .textarea {
 }
 .logo__home {
   margin-left: 50px;
+  cursor: pointer;
 }
 .compte__home {
   margin-right: 50px;
@@ -813,7 +822,16 @@ form .form-row .textarea {
   position: relative;
   bottom: 3px;
 }
-
+.login__home{
+  color: var(--main-bg-color);
+  background: #fff;
+  padding: 10px 20px;
+  border-radius: 1px;
+}
+.login__home:hover{
+  cursor: pointer;
+  text-decoration: none;
+}
 .search__home {
   margin: auto;
   color: white;

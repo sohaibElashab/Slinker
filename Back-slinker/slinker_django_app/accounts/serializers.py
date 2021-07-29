@@ -2,8 +2,8 @@ from rest_framework import serializers
 from django.contrib.auth import authenticate
 from .models import User
 from django.contrib.auth.hashers import make_password
-from . import facebook
-
+from . import facebook,google
+from rest_framework.exceptions import AuthenticationFailed
 
 # user serializer
 class UserSerializer(serializers.ModelSerializer):
@@ -71,4 +71,27 @@ class FacebookSerializer(serializers.Serializer):
                 'The token is invalid or expired. Please try again.'
             )
 
+# google serializer
 
+class GoogleSerializer(serializers.Serializer):
+    auth_token = serializers.CharField()
+
+    def validate_auth_token(self, auth_token):
+        user_data = google.Google.validate(auth_token)
+        try:
+            user_data['sub']
+        except:
+            raise serializers.ValidationError(
+                'The token is invalid or expired. Please try again.'
+            )
+
+        if user_data['aud'] != "338514051366-2l7uuqka8l7fmbe9dhim3i476k8n6889.apps.googleusercontent.com":
+
+            raise AuthenticationFailed('oops, who are you?')
+
+        user_id = user_data['sub']
+        email = user_data['email']
+        name = user_data['name']
+        provider = 'google'
+
+        return facebook_register(email,user_id,provider,name)

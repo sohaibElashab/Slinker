@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import LeftSectionSign from "../Layouts/LeftSectionSign";
 import SocialLogin from "../Layouts/SocialLogin";
@@ -7,6 +7,9 @@ import axios from "axios";
 const Login = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
+  const [email_err, setemail_err] = useState("");
+  const [password_err, setpassword_err] = useState("");
+  const [credential_err, setcredential_err] = useState("");
 
   const changePassword = (e) => {
     setpassword(e.target.value);
@@ -29,7 +32,22 @@ const Login = () => {
         history.push("/");
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.response.data);
+        if(err.response.data.email){
+          setemail_err(err.response.data.email[0])
+        }else{
+          setemail_err("")
+        }
+        if(err.response.data.password){
+          setpassword_err(err.response.data.password[0])
+        }else{
+          setpassword_err("")
+        }
+        if(err.response.data.non_field_errors){
+          setcredential_err(err.response.data.non_field_errors[0])
+        }else{
+          setcredential_err("")
+        }
       });
   };
   return (
@@ -43,19 +61,21 @@ const Login = () => {
         <div className="form__login__sign">
           <SocialLogin orType="login" />
 
+              {credential_err !== "" ? <p className="mb-5">{credential_err}</p> : ""}
           <div className="container__sign">
             <form>
               <div className="form__row__sign">
                 <div className="input__data__sign">
                   <input
                     type="email"
-                    onChange={(e) => setemail(e.target.value)}
+                    onChange={changeEmail}
                     required
                   />
                   <div className="underline"></div>
                   <label htmlFor="">Email Address</label>
                 </div>
               </div>
+              {email_err !== "" ? <p>{email_err}</p> : ""}
               <div className="form__row__sign">
                 <div className="input__data__sign">
                   <input type="password" onChange={changePassword} required />
@@ -63,14 +83,14 @@ const Login = () => {
                   <label htmlFor="">Password</label>
                 </div>
               </div>
-
+              {password_err !== "" ? <p>{password_err}</p> : ""}
               <div className="newsletter__sign">
                 <div className="checkbox__sign">
                   <input type="checkbox" name="" id="stay-online" />
                   <label htmlFor="stay-online">Remember Me</label>
                 </div>
                 <div>
-                  <a className="anchor-custom" href="">
+                  <a className="anchor-custom" href="/">
                     Forget Password ?
                   </a>
                 </div>
@@ -89,11 +109,11 @@ const Login = () => {
           <div className="terms__login__sign">
             <p>
               By Signing up, you agree to Slinker’s <br />
-              <a className="anchor__custom__sign" href="">
+              <a className="anchor__custom__sign" href="/">
                 Terms and Conditions
               </a>{" "}
               &
-              <a className="anchor__custom__sign" href="">
+              <a className="anchor__custom__sign" href="/">
                 Privacy Policy
               </a>
             </p>

@@ -9,6 +9,7 @@ const Register = () => {
   const [name, setname] = useState("");
   const [site, setsite] = useState("");
   const [password, setpassword] = useState("");
+  const [email_err, setemail_err] = useState("");
 
   const changePassword = (e) => {
     setpassword(e.target.value);
@@ -44,6 +45,9 @@ const Register = () => {
       })
       .catch((err) => {
         console.log(err);
+        if(err.response.data.email){
+          setemail_err(err.response.data.email[0])
+        }
       });
   };
   return (
@@ -63,39 +67,40 @@ const Register = () => {
                 <div className="input__data__sign">
                   <input type="text" onChange={changeName} required />
                   <div className="underline"></div>
-                  <label for="">Name</label>
+                  <label htmlFor="">Name</label>
                 </div>
               </div>
               <div className="form__row__sign">
                 <div className="input__data__sign">
                   <input type="text" onChange={changeEmail} required />
                   <div className="underline"></div>
-                  <label for="">Email Address</label>
+                  <label htmlFor="">Email Address</label>
                 </div>
               </div>
+              {email_err !== "" ? <p className="mb-4">{email_err}</p> : ""}
               <div className="form__row__sign">
                 <div className="input__data__sign">
                   <input type="text" onChange={changeSite} required />
                   <div className="underline"></div>
-                  <label for="">Your Website</label>
+                  <label htmlFor="">Your Website</label>
                 </div>
               </div>
               <div className="form__row__sign">
                 <div className="input__data__sign">
                   <input type="password" onChange={changePassword} required />
                   <div className="underline"></div>
-                  <label for="">Password</label>
+                  <label htmlFor="">Password</label>
                 </div>
               </div>
 
               <div className="newsletter__sign">
                 <div className="checkbox__sign">
                   <input type="checkbox" name="" id="Enable-Notifications" />
-                  <label for="Enable-Notifications">Enable Notifications</label>
+                  <label htmlFor="Enable-Notifications">Enable Notifications</label>
                 </div>
                 <div className="checkbox__sign">
                   <input type="checkbox" name="" id="Enable-Emails" />
-                  <label for="Enable-Emails">Enable Emails</label>
+                  <label htmlFor="Enable-Emails">Enable Emails</label>
                 </div>
               </div>
 
@@ -112,11 +117,11 @@ const Register = () => {
           <div className="terms__register__sign">
             <p>
               By Signing up, you agree to Slinker’s <br />
-              <a className="anchor__custom__sign" href="">
+              <a className="anchor__custom__sign" href="/">
                 Terms and Conditions
               </a>{" "}
               &
-              <a className="anchor__custom__sign" href="">
+              <a className="anchor__custom__sign" href="/">
                 Privacy Policy
               </a>
             </p>

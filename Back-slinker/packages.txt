@@ -15,3 +15,7 @@ react-facebook-login => npm install react-facebook-login --force
 facebook-sdk => pip install facebook-sdk
 
 cors => pip install django-cors-headers
+
+#google login
+react-google-login => npm install react-google-login
+google-api-python-client => pip install google-api-python-client

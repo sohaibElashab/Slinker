@@ -1,25 +1,35 @@
 import axios from "axios";
-import {useState} from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  const [sessionToken, setsessionToken] = useState()
+  const [sessionToken, setsessionToken] = useState();
+
+  useEffect(() => {
+    console.log(localStorage.getItem("token_user"));
+  });
+
   const checkLogin = () => {
-    sessionStorage.getItem("token_user") ? setsessionToken(true) : setsessionToken(false)
-  }
+    sessionStorage.getItem("token_user")
+      ? setsessionToken(true)
+      : setsessionToken(false);
+  };
   const logout = () => {
-    axios.post(
-      "http://127.0.0.1:8000/api/auth/logout",
-      {},
-      {
-        headers: {
-          Authorization: "token " + sessionStorage.getItem("token_user"),
-        },
-      }
-    ).then(()=>{
-      sessionStorage.removeItem('token_user')
-      checkLogin()
-    });
+    axios
+      .post(
+        "http://127.0.0.1:8000/api/auth/logout",
+        {},
+        {
+          headers: {
+            Authorization: "token " + sessionStorage.getItem("token_user"),
+          },
+        }
+      )
+      .then(() => {
+        sessionStorage.removeItem("token_user");
+        localStorage.removeItem("token_user");
+        checkLogin();
+      });
   };
 
   return (
@@ -41,7 +51,7 @@ const Home = () => {
             <div className="compte__home">
               {/* <i className="far fa-user"></i>
               <span>3</span> */}
-              {sessionToken || sessionStorage.getItem("token_user") ? (
+              {sessionToken || sessionStorage.getItem("token_user") || localStorage.getItem("token_user") ? (
                 <>
                   <i className="far fa-user"></i>
                   <span>3</span>

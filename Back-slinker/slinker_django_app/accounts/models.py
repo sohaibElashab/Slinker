@@ -43,6 +43,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(db_index=True, unique=True,  null=True, blank=True)
     website = models.CharField(max_length=255)
     notif = models.BooleanField(default=False)
+    email_notif = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     auth_provider = models.CharField(max_length=255, blank=False,null=False, default='email')

@@ -40,9 +40,10 @@ INSTALLED_APPS = [
     'accounts',
     'rest_framework',
     'knox',
+    'scrap'
 ]
 
-REST_FRAMEWORK={
+REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',)
 }
 
@@ -96,7 +97,7 @@ DATABASES = {
         'ENFORCE_SCHEMA': False,
         'CLIENT': {
             'host': 'mongodb+srv://admin:admin@slinker.ijttt.mongodb.net/demo?retryWrites=true&w=majority&ssl=true&ssl_cert_reqs=CERT_NONE'
-        }  
+        }
     }
 }
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import Sidebar from '../Layouts/Sidebar'
+import ControlButton from '../Layouts/ControlButton'
 
 const Dashboard = () => {
   return (
@@ -87,22 +88,7 @@ const Dashboard = () => {
                 Total Links
                 <div className="link__dashboard"></div>
               </div>
-              <div className="button__control__dashboard">
-                <div className="control__button__dashboard">
-                  <div className="control__dashboard button__control__recherch__dashboard">
-                    <i className="fas fa-redo-alt"></i>
-                    <span>Recheck</span>
-                  </div>
-                  <div className="control__dashboard button__control__download__dashboard">
-                    <i className="fas fa-download"></i>
-                    <span>Download</span>
-                  </div>
-                </div>
-                <div className="button__control__upgrade__dashboard">
-                  Improve Managment by upgrading your account
-                  <button>Upgrade</button>
-                </div>
-              </div>
+              <ControlButton big={false}/>
             </div>
           </div>
         </div>

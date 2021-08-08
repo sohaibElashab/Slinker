@@ -1082,9 +1082,9 @@ main {
 .must__subscribe__text__ISC {
   font-style: normal;
   font-weight: 450;
-  font-size: 1em;
+  font-size: 0.9em;
   color: #797876;
-  padding: 0px 50px 0px 0px;
+  padding: 0px 50px 0px 10px;
 }
 .button__control__ISC {
   height: 100%;
@@ -1190,6 +1190,9 @@ main {
   justify-content: space-evenly;
   color: #797876;
   align-items: center;
+}
+.products__status__width__ISC{
+  width: 45% !important;
 }
 .products__status__ISC span {
   padding-right: 10px;

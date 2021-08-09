@@ -4,31 +4,31 @@ from django.db import models
 
 
 class Websites(models.Model):
-    url = models.CharField
-    user_id = models.IntegerField
-    page_number = models.IntegerField
-    link_number = models.IntegerField
-    last_crawl = models.DateTimeField
-    crawl_time = models.CharField
+    url = models.CharField(max_length=200)
+    user_id = models.IntegerField(null=False)
+    page_number = models.IntegerField(null=False)
+    link_number = models.IntegerField(null=False)
+    last_crawl = models.DateTimeField(null=False)
+    crawl_time = models.CharField(max_length=200, null=False)
 
 
 class Pages(models.Model):
-    website_id = models.IntegerField
-    page_url = models.CharField
+    website_id = models.IntegerField(null=False)
+    page_url = models.CharField(max_length=200, null=False)
 
 
 class Products(models.Model):
-    image = models.CharField
-    name = models.CharField
-    website_id = models.IntegerField
-    status = models.CharField
-    number_reviews = models.IntegerField
-    affiliat_id = models.CharField
-    product_url = models.CharField
+    image = models.CharField(max_length=200, null=False)
+    name = models.CharField(max_length=200, null=False)
+    website_id = models.IntegerField(null=False)
+    status = models.CharField(max_length=200, null=False)
+    number_reviews = models.IntegerField(null=False)
+    affiliat_id = models.CharField(max_length=200, null=False)
+    product_url = models.CharField(max_length=200, null=False)
 
 
 class Similar_products(models.Model):
-    product_id = models.IntegerField
-    image = models.CharField
-    name = models.CharField
-    url = models.CharField
+    product_id = models.IntegerField(null=False)
+    image = models.CharField(max_length=200, null=False)
+    name = models.CharField(max_length=200, null=False)
+    url = models.CharField(max_length=200, null=False)

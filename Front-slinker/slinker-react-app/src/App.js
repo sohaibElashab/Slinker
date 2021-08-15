@@ -13,8 +13,51 @@ import ScanningProgress from "./Components/Pages/ScanningProgress";
 import Sites from "./Components/Pages/Sites";
 import Summary from "./Components/Pages/Summary";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import { setPages, setProduct, setSimilar, setWebSite } from "./Redux/Actions/ScrapyAction";
 
 function App() {
+  const products = useSelector((state) => state);
+  const websites = useSelector((state) => state);
+  const similars = useSelector((state) => state);
+  const Pages = useSelector((state) => state);
+
+  const dispatch = useDispatch()
+
+  const fetshProducts = async () => {
+    const response = await axios.get('http://127.0.0.1:8000/api/products/').catch((err) => console.log('err' , err));
+    dispatch(setProduct(response.data))
+  }
+
+  const fetshPages = async () => {
+    const response = await axios.get('http://127.0.0.1:8000/api/pages/').catch((err) => console.log('err' , err));
+    dispatch(setPages(response.data))
+  }
+
+  const fetshWebsites = async () => {
+    const response = await axios.get('http://127.0.0.1:8000/api/websites/').catch((err) => console.log('err' , err));
+    dispatch(setWebSite(response.data))
+  }
+
+  const fetshSimilar = async () => {
+    const response = await axios.get('http://127.0.0.1:8000/api/similar/').catch((err) => console.log('err' , err));
+    dispatch(setSimilar(response.data))
+  }
+  
+  useEffect(() => {
+    fetshProducts();
+    fetshPages();
+    fetshWebsites();
+    fetshSimilar();
+  }, [])
+  
+  console.log(products);
+  console.log(websites);
+  console.log(similars);
+  console.log(Pages);
+  
+
   useEffect(() => {
     if (localStorage.getItem("token_user")) {
       sessionStorage.setItem("token_user", localStorage.getItem("token_user"));
@@ -36,6 +79,7 @@ function App() {
         <Route path="/ScanningProgress" component={ScanningProgress} />
         <Route path="/Sites" component={Sites} />
         <Route path="/Summary" component={Summary} />
+        <Route>404 Not Found!</Route>
       </Router>
     </div>
   );

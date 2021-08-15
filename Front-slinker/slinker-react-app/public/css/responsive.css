@@ -1,0 +1,59 @@
+/* // Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { 
+    .example {background: red;}
+    
+    /* home */
+    .search__home h1{font-size: 1.7em; margin-bottom: 35px;}
+    .search__home span{font-size: 20px;}
+    .search__home{width: 90%; margin-top: 15px;}
+
+    /* scanning */
+    .resultes {flex-direction: column;}
+    .shema {width: 5px;height: 140px;margin: 20px 0px;}
+    .in_progress__shema {background-image: linear-gradient(to bottom, var(--main-bg-color), #c5add2);}
+    .progress:last-child { padding: 0px !important;}
+    .progress span{padding: 10px;}
+}
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) { 
+    .example {background: green;}
+
+    /* home */
+    .search__home h1{font-size: 2.5em; margin-bottom: 30px;}
+    .search__home span{font-size: 25px;}
+    .search__home{width: 80%; margin-top: 10px;}
+
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    .example {background: #0000ff;}
+
+    /* home */
+    .search__home h1{font-size: 2.7em; margin-bottom: 30px;}
+    .search__home{width: 60%;}
+
+    /* scanning */
+    .resultes i {font-size: 2.8em;}
+    .shema {width: 80px;}
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .example {background: orange;}
+    
+    /* home */
+    .search__home h1{font-size: 3.5em;}
+
+    /* scanning */
+    .resultes i {font-size: 3em;}
+    .shema {width: 130px;}
+}
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+    .example {background: pink;}
+    /* home */
+    .search__home h1{font-size: 4em;}
+}

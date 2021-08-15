@@ -9,9 +9,9 @@ from .api import WebsitesVS, PagesVS, ProductsVS, SimilarProductsVS
 # Remove a book: DELETE api/pages/{id}/
 
 router = routers.DefaultRouter()
-router.register('api/websites', WebsitesVS, 'websites')
+router.register('api/websites', WebsitesVS, 'websites') 
 router.register('api/pages', PagesVS, 'pages')
 router.register('api/products', ProductsVS, 'products')
-router.register('api/similar', SimilarProductsVS, 'similar')
+router.register('api/similar', SimilarProductsVS, 'similar') 
 
 urlpatterns = router.urls

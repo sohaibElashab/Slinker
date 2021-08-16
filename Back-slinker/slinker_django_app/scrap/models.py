@@ -15,12 +15,14 @@ class Websites(models.Model):
 class Pages(models.Model):
     website_id = models.IntegerField(null=False)
     page_url = models.CharField(max_length=200, null=False)
+    user_id = models.IntegerField(null=False)
 
 
 class Products(models.Model):
     image = models.CharField(max_length=200, null=False)
     name = models.CharField(max_length=200, null=False)
-    website_id = models.IntegerField(null=False)
+    user_id = models.IntegerField(null=False)
+    page_id = models.IntegerField(null=False)
     status = models.CharField(max_length=200, null=False)
     number_reviews = models.IntegerField(null=False)
     affiliat_id = models.CharField(max_length=200, null=False)
@@ -30,5 +32,6 @@ class Products(models.Model):
 class Similar_products(models.Model):
     product_id = models.IntegerField(null=False)
     image = models.CharField(max_length=200, null=False)
+    user_id = models.IntegerField(null=False)
     name = models.CharField(max_length=200, null=False)
     url = models.CharField(max_length=200, null=False)

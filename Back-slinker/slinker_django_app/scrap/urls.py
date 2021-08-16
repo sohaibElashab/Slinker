@@ -18,10 +18,10 @@ from .api import WebsitesVS, PagesVS, ProductsVS, SimilarProductsVS
 # }
 # get products by website id: POST api/products/ID/
 # {
-#     "website_id":1
+#     "page_id":1
 # }
 # get similar products by product id: POST api/similar/ID/
-# {
+# { 
 #     "product_id":1
 # }
 

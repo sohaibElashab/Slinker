@@ -27,7 +27,7 @@ class PagesVS(viewsets.ModelViewSet):
 
     @action(detail=False, methods=['POST'])
     def ID(self, request, pK=None):
-        web = Pages.objects.filter(website_id=request.data['website_id'])
+        web = Pages.objects.filter(user_id=request.data['user_id'])
         a = []
         for x in web:
             a.append(PagesSerializer(x).data)
@@ -41,7 +41,7 @@ class ProductsVS(viewsets.ModelViewSet):
 
     @action(detail=False, methods=['POST'])
     def ID(self, request, pK=None):
-        web = Products.objects.filter(website_id=request.data['website_id'])
+        web = Products.objects.filter(user_id=request.data['user_id'])
         a = []
         for x in web:
             a.append(ProductsSerializer(x).data)
@@ -56,7 +56,7 @@ class SimilarProductsVS(viewsets.ModelViewSet):
     @action(detail=False, methods=['POST'])
     def ID(self, request, pK=None):
         web = Similar_products.objects.filter(
-            product_id=request.data['product_id'])
+            user_id=request.data['user_id'])
         a = []
         for x in web:
             a.append(SimilarProductsSerializer(x).data)

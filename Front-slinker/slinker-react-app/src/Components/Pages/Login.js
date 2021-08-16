@@ -36,8 +36,6 @@ const Login = () => {
         password: password,
       })
       .then((response) => {
-        console.log("response");
-        console.log(response);
         sessionStorage.setItem("token_user", response.data.token);
         if (remember_me === true) {
           localStorage.setItem("token_user", response.data.token);

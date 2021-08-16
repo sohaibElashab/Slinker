@@ -12,57 +12,157 @@ import Pricing from "./Components/Pages/Pricing";
 import ScanningProgress from "./Components/Pages/ScanningProgress";
 import Sites from "./Components/Pages/Sites";
 import Summary from "./Components/Pages/Summary";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { setPages, setProduct, setSimilar, setWebSite } from "./Redux/Actions/ScrapyAction";
+import {
+  setPages,
+  setProduct,
+  setSimilar,
+  setUser,
+  setWebSite,
+} from "./Redux/Actions/ScrapyAction";
 
 function App() {
-  const products = useSelector((state) => state);
-  const websites = useSelector((state) => state);
-  const similars = useSelector((state) => state);
-  const Pages = useSelector((state) => state);
+  const dispatch = useDispatch();
+  // const user = useSelector((state) => state.user.user);
+  // const websites = useSelector((state) => state.websites.websites);
+  // const pages = useSelector((state) => state.pages.pages);
+  // const products = useSelector((state) => state.products.products);
+  // const similars = useSelector((state) => state.similar.similars);
 
-  const dispatch = useDispatch()
-
-  const fetshProducts = async () => {
-    const response = await axios.get('http://127.0.0.1:8000/api/products/').catch((err) => console.log('err' , err));
-    dispatch(setProduct(response.data))
-  }
-
-  const fetshPages = async () => {
-    const response = await axios.get('http://127.0.0.1:8000/api/pages/').catch((err) => console.log('err' , err));
-    dispatch(setPages(response.data))
-  }
-
-  const fetshWebsites = async () => {
-    const response = await axios.get('http://127.0.0.1:8000/api/websites/').catch((err) => console.log('err' , err));
-    dispatch(setWebSite(response.data))
-  }
-
-  const fetshSimilar = async () => {
-    const response = await axios.get('http://127.0.0.1:8000/api/similar/').catch((err) => console.log('err' , err));
-    dispatch(setSimilar(response.data))
-  }
+  // const fetshUser = async () => {
+  //   console.log("done fetshUser");
+  //   const response = await axios
+  //     .get("http://127.0.0.1:8000/api/auth/user", {
+  //       headers: {
+  //         Authorization: "token " + sessionStorage.getItem("token_user"),
+  //       },
+  //     })
+  //     .catch((err) => console.log("err", err));
+  //   dispatch(setUser(response.data));
+  //   if(user && user !== [])
+  //   {
+  //     await fetshData(user.id);
+  //     console.log("user", user.id);
+  //     console.log("websites",websites)
+  //     console.log("pages",pages)
+  //     console.log("products",products)
+  //   }
+  // };
   
-  useEffect(() => {
-    fetshProducts();
-    fetshPages();
-    fetshWebsites();
-    fetshSimilar();
-  }, [])
+  //   const fetshData = async (id) => {
+  //     if(!websites){
+  //       const response = await axios
+  //         .post(`http://127.0.0.1:8000/api/websites/ID/`, { user_id: id })
+  //         .catch((err) => console.log("err", err));
+  //       dispatch(setWebSite(response.data));
+  //       console.log("done setWebSite");
+  //     }
+  //     if(!pages){
+  //       const response = await axios
+  //         .post(`http://127.0.0.1:8000/api/pages/ID/`, { user_id: id })
+  //         .catch((err) => console.log("err", err));
+  //       dispatch(setPages(response.data));
+  //       console.log("do setPagesne");
+  //     }
+  //     if(!products){
+  //       const response = await axios
+  //         .post(`http://127.0.0.1:8000/api/products/ID/`, { user_id: id })
+  //         .catch((err) => console.log("err", err));
+  //       dispatch(setProduct(response.data));
+  //       console.log("done setProduct");
+  //     }
+  //     if(!similars){
+  //       const response = await axios
+  //         .post(`http://127.0.0.1:8000/api/similar/ID/`, { user_id: id })
+  //         .catch((err) => console.log("err", err));
+  //       dispatch(setSimilar(response.data));
+  //       console.log("done setProduct");
+  //     }
+  //   };
+
+  const [user , setuser] = useState() ;
+  const [websites , setwebsites] = useState() ;
+  const [pages , setpages] = useState() ;
+  const [products , setproducts] = useState() ;
+  const [similars , setsimilars] = useState() ;
+
+  const fetshUser = async () => {
+    console.log("done fetshUser");
+    const response = await axios
+      .get("http://127.0.0.1:8000/api/auth/user", {
+        headers: {
+          Authorization: "token " + sessionStorage.getItem("token_user"),
+        },
+      })
+      .catch((err) => console.log("err", err));
+    setuser(response.data)
+    if(user && user !== [])
+    {
+      await fetshData(user.id);
+      console.log("user", user.id);
+      console.log("websites",websites)
+      console.log("pages",pages)
+      console.log("products",products)
+    }
+  };
   
-  console.log(products);
-  console.log(websites);
-  console.log(similars);
-  console.log(Pages);
+    const fetshData = async (id) => {
+      if(!websites){
+        const response = await axios
+          .post(`http://127.0.0.1:8000/api/websites/ID/`, { user_id: id })
+          .catch((err) => console.log("err", err));
+        
+          setwebsites(response.data)
+          console.log("done setWebSite");
+      }
+      if(!pages){
+        const response = await axios
+          .post(`http://127.0.0.1:8000/api/pages/ID/`, { user_id: id })
+          .catch((err) => console.log("err", err));
+        
+          setpages(response.data)
+          console.log("do setPagesne");
+      }
+      if(!products){
+        const response = await axios
+          .post(`http://127.0.0.1:8000/api/products/ID/`, { user_id: id })
+          .catch((err) => console.log("err", err));
+        
+          setproducts(response.data)
+          console.log("done setProduct");
+      }
+      if(!similars){
+        const response = await axios
+          .post(`http://127.0.0.1:8000/api/similar/ID/`, { user_id: id })
+          .catch((err) => console.log("err", err));
+          setsimilars(response.data)
+          console.log("done setProduct");
+      }
+    };
+
   
+
+  // if(user && user !== [])
+  // {
+  //   fetshData(user.id);
+  //   console.log("user", user.id);
+  //   console.log("websites",websites)
+  //   console.log("pages",pages)
+  //   console.log("products",products)
+    
+  // }
 
   useEffect(() => {
     if (localStorage.getItem("token_user")) {
       sessionStorage.setItem("token_user", localStorage.getItem("token_user"));
     }
+    if(sessionStorage.getItem("token_user"))
+      fetshUser();
   });
+
+  // const ayoubzaml = () => console.log("ayoub zaml 2")
   return (
     <div className="App">
       <Router>

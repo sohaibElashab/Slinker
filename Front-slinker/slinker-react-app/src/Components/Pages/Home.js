@@ -6,7 +6,7 @@ const Home = () => {
   const [sessionToken, setsessionToken] = useState();
 
   useEffect(() => {
-    console.log(localStorage.getItem("token_user"));
+    // console.log(localStorage.getItem("token_user"));
   });
 
   const checkLogin = () => {

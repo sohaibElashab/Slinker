@@ -24,145 +24,37 @@ import {
 } from "./Redux/Actions/ScrapyAction";
 
 function App() {
+
+  const websites = useSelector((state) => state.websites);
+  const pages = useSelector((state) => state.pages);
+  const products = useSelector((state) => state.products);
+  const similars = useSelector((state) => state.similars);
   const dispatch = useDispatch();
-  // const user = useSelector((state) => state.user.user);
-  // const websites = useSelector((state) => state.websites.websites);
-  // const pages = useSelector((state) => state.pages.pages);
-  // const products = useSelector((state) => state.products.products);
-  // const similars = useSelector((state) => state.similar.similars);
+  useEffect(() => {
+    fetshData()
+  }, [])
 
-  // const fetshUser = async () => {
-  //   console.log("done fetshUser");
-  //   const response = await axios
-  //     .get("http://127.0.0.1:8000/api/auth/user", {
-  //       headers: {
-  //         Authorization: "token " + sessionStorage.getItem("token_user"),
-  //       },
-  //     })
-  //     .catch((err) => console.log("err", err));
-  //   dispatch(setUser(response.data));
-  //   if(user && user !== [])
-  //   {
-  //     await fetshData(user.id);
-  //     console.log("user", user.id);
-  //     console.log("websites",websites)
-  //     console.log("pages",pages)
-  //     console.log("products",products)
-  //   }
-  // };
-  
-  //   const fetshData = async (id) => {
-  //     if(!websites){
-  //       const response = await axios
-  //         .post(`http://127.0.0.1:8000/api/websites/ID/`, { user_id: id })
-  //         .catch((err) => console.log("err", err));
-  //       dispatch(setWebSite(response.data));
-  //       console.log("done setWebSite");
-  //     }
-  //     if(!pages){
-  //       const response = await axios
-  //         .post(`http://127.0.0.1:8000/api/pages/ID/`, { user_id: id })
-  //         .catch((err) => console.log("err", err));
-  //       dispatch(setPages(response.data));
-  //       console.log("do setPagesne");
-  //     }
-  //     if(!products){
-  //       const response = await axios
-  //         .post(`http://127.0.0.1:8000/api/products/ID/`, { user_id: id })
-  //         .catch((err) => console.log("err", err));
-  //       dispatch(setProduct(response.data));
-  //       console.log("done setProduct");
-  //     }
-  //     if(!similars){
-  //       const response = await axios
-  //         .post(`http://127.0.0.1:8000/api/similar/ID/`, { user_id: id })
-  //         .catch((err) => console.log("err", err));
-  //       dispatch(setSimilar(response.data));
-  //       console.log("done setProduct");
-  //     }
-  //   };
+  const fetshData = () => {
+    if(sessionStorage.getItem("token_user")){
+        dispatch(setWebSite());
+        dispatch(setPages());
+        dispatch(setProduct());
+        dispatch(setSimilar());
+    } 
+  }
 
-  const [user , setuser] = useState() ;
-  const [websites , setwebsites] = useState() ;
-  const [pages , setpages] = useState() ;
-  const [products , setproducts] = useState() ;
-  const [similars , setsimilars] = useState() ;
-
-  const fetshUser = async () => {
-    console.log("done fetshUser");
-    const response = await axios
-      .get("http://127.0.0.1:8000/api/auth/user", {
-        headers: {
-          Authorization: "token " + sessionStorage.getItem("token_user"),
-        },
-      })
-      .catch((err) => console.log("err", err));
-    setuser(response.data)
-    if(user && user !== [])
-    {
-      await fetshData(user.id);
-      console.log("user", user.id);
-      console.log("websites",websites)
-      console.log("pages",pages)
-      console.log("products",products)
-    }
-  };
-  
-    const fetshData = async (id) => {
-      if(!websites){
-        const response = await axios
-          .post(`http://127.0.0.1:8000/api/websites/ID/`, { user_id: id })
-          .catch((err) => console.log("err", err));
-        
-          setwebsites(response.data)
-          console.log("done setWebSite");
-      }
-      if(!pages){
-        const response = await axios
-          .post(`http://127.0.0.1:8000/api/pages/ID/`, { user_id: id })
-          .catch((err) => console.log("err", err));
-        
-          setpages(response.data)
-          console.log("do setPagesne");
-      }
-      if(!products){
-        const response = await axios
-          .post(`http://127.0.0.1:8000/api/products/ID/`, { user_id: id })
-          .catch((err) => console.log("err", err));
-        
-          setproducts(response.data)
-          console.log("done setProduct");
-      }
-      if(!similars){
-        const response = await axios
-          .post(`http://127.0.0.1:8000/api/similar/ID/`, { user_id: id })
-          .catch((err) => console.log("err", err));
-          setsimilars(response.data)
-          console.log("done setProduct");
-      }
-    };
-
-  
-
-  // if(user && user !== [])
-  // {
-  //   fetshData(user.id);
-  //   console.log("user", user.id);
-  //   console.log("websites",websites)
-  //   console.log("pages",pages)
-  //   console.log("products",products)
-    
-  // }
-
+  console.log("websites",websites)
+  console.log("pages",pages)
+  console.log("products",products)
+  console.log("similars",similars)
   useEffect(() => {
     if (localStorage.getItem("token_user")) {
       sessionStorage.setItem("token_user", localStorage.getItem("token_user"));
     }
-    if(sessionStorage.getItem("token_user"))
-      fetshUser();
   });
-
-  // const ayoubzaml = () => console.log("ayoub zaml 2")
+  const test = () => {
+    console.log("test true")
+  }
   return (
     <div className="App">
       <Router>

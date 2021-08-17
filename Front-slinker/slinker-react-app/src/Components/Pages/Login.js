@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import LeftSectionSign from "../Layouts/LeftSectionSign";
 import SocialLogin from "../Layouts/SocialLogin";
@@ -13,7 +13,7 @@ const Login = () => {
   const [remember_me, setremember_me] = useState(false);
 
   useEffect(() => {
-    console.log(localStorage.getItem("token_user"));
+    // console.log(localStorage.getItem("token_user"));
   });
 
   const changeRemember = (e) => {
@@ -37,13 +37,15 @@ const Login = () => {
       })
       .then((response) => {
         sessionStorage.setItem("token_user", response.data.token);
+        sessionStorage.setItem("id_user", response.data.user.id);
         if (remember_me === true) {
           localStorage.setItem("token_user", response.data.token);
+          localStorage.setItem("id_user", response.data.user.id);
         }
         history.push("/");
       })
       .catch((err) => {
-        console.log(err.response.data);
+        // console.log(err.response.data);
         if (err.response.data.email) {
           setemail_err(err.response.data.email[0]);
         } else {

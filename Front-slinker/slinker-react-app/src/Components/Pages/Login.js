@@ -4,7 +4,7 @@ import LeftSectionSign from "../Layouts/LeftSectionSign";
 import SocialLogin from "../Layouts/SocialLogin";
 import axios from "axios";
 
-const Login = () => {
+const Login = (props) => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [email_err, setemail_err] = useState("");
@@ -42,6 +42,7 @@ const Login = () => {
           localStorage.setItem("token_user", response.data.token);
           localStorage.setItem("id_user", response.data.user.id);
         }
+        props.fetshData();
         history.push("/");
       })
       .catch((err) => {

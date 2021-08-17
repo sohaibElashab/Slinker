@@ -24,43 +24,46 @@ import {
 } from "./Redux/Actions/ScrapyAction";
 
 function App() {
-
   const websites = useSelector((state) => state.websites);
   const pages = useSelector((state) => state.pages);
   const products = useSelector((state) => state.products);
-  const similars = useSelector((state) => state.similars);
+  const similars = useSelector((state) => state.similar);
   const dispatch = useDispatch();
-  useEffect(() => {
-    fetshData()
-  }, [])
+  // useEffect(() => {
+  //   fetshData();
+  // }, []);
 
   const fetshData = () => {
-    if(sessionStorage.getItem("token_user")){
-        dispatch(setWebSite());
-        dispatch(setPages());
-        dispatch(setProduct());
-        dispatch(setSimilar());
-    } 
-  }
+    if (sessionStorage.getItem("token_user")) {
+      dispatch(setWebSite());
+      dispatch(setPages());
+      dispatch(setProduct());
+      dispatch(setSimilar());
+    }
+  };
 
-  console.log("websites",websites)
-  console.log("pages",pages)
-  console.log("products",products)
-  console.log("similars",similars)
+  console.log("websites", websites);
+  console.log("pages", pages);
+  console.log("products", products);
+  console.log("similars", similars);
   useEffect(() => {
+    fetshData();
     if (localStorage.getItem("token_user")) {
       sessionStorage.setItem("token_user", localStorage.getItem("token_user"));
     }
-  });
-  const test = () => {
-    console.log("test true")
-  }
+  }, []);
+  const test_fun = () => {
+    console.log("test true");
+  };
   return (
     <div className="App">
       <Router>
         <Route path="/" exact component={Home} />
         <Route path="/Register" component={Register} />
-        <Route path="/Login" component={Login} />
+        <Route
+          path="/Login"
+          component={() => <Login fetshData={fetshData} />}
+        />
         <Route path="/Contact" component={Contact} />
         <Route path="/Custom" component={Custom} />
         <Route path="/CustomLink" component={CustomLink} />

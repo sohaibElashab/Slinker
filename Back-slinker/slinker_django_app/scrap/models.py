@@ -23,6 +23,7 @@ class Products(models.Model):
     name = models.CharField(max_length=200, null=False)
     user_id = models.IntegerField(null=False)
     page_id = models.IntegerField(null=False)
+    website_id = models.IntegerField(null=False)
     status = models.CharField(max_length=200, null=False)
     number_reviews = models.IntegerField(null=False)
     affiliat_id = models.CharField(max_length=200, null=False)

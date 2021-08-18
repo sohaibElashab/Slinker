@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./Components/Pages/Home";
 import Login from "./Components/Pages/Login";
 import Register from "./Components/Pages/Register";
@@ -42,10 +42,10 @@ function App() {
     }
   };
 
-  console.log("websites", websites);
-  console.log("pages", pages);
-  console.log("products", products);
-  console.log("similars", similars);
+  // console.log("websites", websites);
+  // console.log("pages", pages);
+  // console.log("products", products);
+  // console.log("similars", similars);
   useEffect(() => {
     fetshData();
     if (localStorage.getItem("token_user")) {
@@ -58,23 +58,25 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Route path="/" exact component={Home} />
-        <Route path="/Register" component={Register} />
-        <Route
-          path="/Login"
-          component={() => <Login fetshData={fetshData} />}
-        />
-        <Route path="/Contact" component={Contact} />
-        <Route path="/Custom" component={Custom} />
-        <Route path="/CustomLink" component={CustomLink} />
-        <Route path="/Dashboard" component={Dashboard} />
-        <Route path="/Issues" component={Issues} />
-        <Route path="/Load" component={Load} />
-        <Route path="/Pricing" component={Pricing} />
-        <Route path="/ScanningProgress" component={ScanningProgress} />
-        <Route path="/Sites" component={Sites} />
-        <Route path="/Summary" component={Summary} />
-        <Route>404 Not Found!</Route>
+        <Switch>  
+          <Route path="/" exact component={Home} />
+            <Route path="/Register" component={Register} />
+            <Route
+              path="/Login"
+              component={() => <Login fetshData={fetshData} />}
+            />
+            <Route path="/Contact" component={Contact} />
+            <Route path="/Custom" component={Custom} />
+            <Route path="/CustomLink" component={CustomLink} />
+            <Route path="/Dashboard" component={Dashboard} />
+            <Route path="/Issues" component={Issues} />
+            <Route path="/Load" component={Load} />
+            <Route path="/Pricing" component={Pricing} />
+            <Route path="/ScanningProgress" component={ScanningProgress} />
+            <Route path="/Sites" component={Sites} />
+            <Route path="/Summary/:id" component={() => <Summary/>}/>
+            <Route>404 Not Found!</Route>
+        </Switch>
       </Router>
     </div>
   );

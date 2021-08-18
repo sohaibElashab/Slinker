@@ -5,8 +5,12 @@ import NavSearch from '../Layouts/NavSearch'
 import Sidebar from '../Layouts/Sidebar'
 import ControlButton from '../Layouts/ControlButton'
 import MetricsDetails from '../Layouts/MetricsDetails'
+import { useParams } from 'react-router-dom'
 
 const Summary = () => {
+    
+    const {id} = useParams();
+    console.log(id)
     return (
     <div className="content">
         <Sidebar/>

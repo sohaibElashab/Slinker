@@ -4,7 +4,7 @@ import { Link , useHistory } from "react-router-dom";
 import LeftSectionSign from "../Layouts/LeftSectionSign";
 import SocialLogin from "../Layouts/SocialLogin";
 
-const Register = () => {
+const Register = (props) => {
   const [email, setemail] = useState("");
   const [name, setname] = useState("");
   const [site, setsite] = useState("");

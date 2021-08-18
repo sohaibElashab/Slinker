@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Home = () => {
   const [sessionToken, setsessionToken] = useState();
+  const websites = useSelector((state) => state.websites.websites);
 
   useEffect(() => {
     // console.log(localStorage.getItem("token_user"));
@@ -42,7 +44,7 @@ const Home = () => {
           <section className="topbar__home">
             <div className="logo__home">
               <img
-                src="./Assets/Slinker logo.svg"
+                src="https://localhost:3000/Assets/Slinker logo.svg"
                 alt=""
                 srcSet=""
                 onClick={logout}
@@ -51,17 +53,18 @@ const Home = () => {
             <div className="compte__home">
               {/* <i className="far fa-user"></i>
               <span>3</span> */}
-              {sessionToken || sessionStorage.getItem("token_user") || localStorage.getItem("token_user") ? (
-                <>
+              {sessionToken ||
+              sessionStorage.getItem("token_user") ||
+              localStorage.getItem("token_user") ? (
+                <Link to="/Dashboard">
                   <i className="far fa-user"></i>
-                  <span>3</span>
-                </>
+                  {websites.length > 0 && <span>{websites.length}</span>}
+                </Link>
               ) : (
                 <Link to="/login" className="login__home">
                   Login
                 </Link>
               )}
-              {/* <Link to="/login" className="login__home">Login</Link> */}
             </div>
           </section>
           <section className="search__home">

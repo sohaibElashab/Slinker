@@ -809,12 +809,15 @@ form .form-row .textarea {
 }
 .compte__home {
   margin-right: 50px;
+}
+.compte__home a:hover ,.compte__home a {
+  text-decoration: none;
   color: white;
 }
 .compte__home i {
   font-size: 26px;
 }
-.compte__home span {
+.compte__home span { 
   background: #c5add2;
   padding: 3px 6px;
   border-radius: 5px;
@@ -823,8 +826,8 @@ form .form-row .textarea {
   bottom: 3px;
 }
 .login__home{
-  color: var(--main-bg-color);
-  background: #fff;
+  background : transparent;
+  border: 1px solid rgb(255, 255, 255);
   padding: 10px 20px;
   border-radius: 1px;
 }

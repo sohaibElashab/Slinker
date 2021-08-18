@@ -9,7 +9,8 @@ const Home = () => {
 
   useEffect(() => {
     // console.log(localStorage.getItem("token_user"));
-  });
+  }, []);
+  console.log(websites);
 
   const checkLogin = () => {
     sessionStorage.getItem("token_user")
@@ -58,7 +59,12 @@ const Home = () => {
               localStorage.getItem("token_user") ? (
                 <Link to="/Dashboard">
                   <i className="far fa-user"></i>
-                  {websites.length > 0 && <span>{websites.length}</span>}
+                  {/* {websites.length > 0 && <span>{websites.length}</span>} */}
+                  {websites !== undefined && websites.length > 0 ? (
+                    <span>{websites.length}</span>
+                  ) : (
+                    <span></span>
+                  )}
                 </Link>
               ) : (
                 <Link to="/login" className="login__home">

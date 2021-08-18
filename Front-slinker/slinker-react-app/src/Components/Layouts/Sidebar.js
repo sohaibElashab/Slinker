@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Sidebar = () => {
   const [audit, setaudit] = useState(false);
   const websites = useSelector((state) => state.websites.websites);
-
+  console.log(websites);
   const ShowAudit = {
     display: "block",
   };
@@ -15,43 +15,46 @@ const Sidebar = () => {
   const ChangeAudit = () => {
     setaudit(!audit);
   };
-  const showSites = () => {
-    if(websites.length > 0){
-        console.log("if done")
-        websites.map(element => {
-            console.log("map done")
-            return (
-                <div className="sidebar__child__link__content active_menu_link__content" key={element.id}>
-                    <span className="sidebar__span__content">
-                    <img
-                        className=""
-                        src="https://localhost:3000/Assets/content_icones/Dashboard_icon.svg"
-                        alt=""
-                    />
-                    test
-                    </span>
-                </div>
-            );
-        });
-    }
-  } 
-//   const showSites = () => {
-//       websites.forEach(website => {
-//           {console.log(website.image)}
-//         //   return (
-//                 <div className="sidebar__child__link__content active_menu_link__content">
-//                     <span className="sidebar__span__content">
-//                     <img
-//                         className=""
-//                         src="https://localhost:3000/Assets/content_icones/Dashboard_icon.svg"
-//                         alt=""
-//                     />
-//                     test
-//                     </span>
-//                 </div>
-//         //   )
-//       })
-//   }
+  // const showSites = () => {
+  //   if (websites.length > 0) {
+  //     console.log("if done");
+  //     websites.map((element) => {
+  //       console.log(element);
+  //       return (
+  //         <div
+  //           className="sidebar__child__link__content active_menu_link__content"
+  //           key={element.id}
+  //         >
+  //           <span className="sidebar__span__content">
+  //             <img
+  //               className=""
+  //               src="https://localhost:3000/Assets/content_icones/Dashboard_icon.svg"
+  //               alt=""
+  //             />
+  //             test
+  //           </span>
+  //         </div>
+  //       );
+  //     });
+  //   }
+  // };
+  //   const showSites = () => {
+  //       websites.forEach(website => {
+  //           {console.log(website.image)}
+  //         //   return (
+  //                 <div className="sidebar__child__link__content active_menu_link__content">
+  //                     <span className="sidebar__span__content">
+  //                     <img
+  //                         className=""
+  //                         src="https://localhost:3000/Assets/content_icones/Dashboard_icon.svg"
+  //                         alt=""
+  //                     />
+  //                     test
+  //                     </span>
+  //                 </div>
+  //         //   )
+  //       })
+  //   }
   return (
     <div id="sidebar__content">
       <div className="sidebar__logo__content">
@@ -68,11 +71,22 @@ const Sidebar = () => {
             Sites
           </Link>
         </div>
-        <div className="sidebar__sites__content">
-        {
-            websites && showSites()
-        }
-        </div>
+        <div className="sidebar__sites__content">{
+         websites !== undefined ? websites.map((element) => (  <div
+            className="sidebar__child__link__content active_menu_link__content"
+            key={element.id}
+          >
+            <span className="sidebar__span__content">
+              <img
+                className=""
+                src={element.image}
+                alt=""
+                style={{width:"50px",height:"50px"}}
+              />
+              {element.name}
+            </span>
+          </div> 
+        )):""}</div>
         <hr />
         <div className="sidebar__link__content">
           <Link to="/Dashboard" className="sidebar__span__content">

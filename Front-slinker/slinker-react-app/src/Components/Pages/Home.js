@@ -63,7 +63,7 @@ const Home = () => {
                   {websites !== undefined && websites.length > 0 ? (
                     <span>{websites.length}</span>
                   ) : (
-                    <span></span>
+                    <></>
                   )}
                 </Link>
               ) : (

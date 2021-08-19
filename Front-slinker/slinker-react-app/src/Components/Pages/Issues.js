@@ -4,8 +4,16 @@ import Sidebar from "../Layouts/Sidebar";
 import MustSubscribe from "../Layouts/MustSubscribe";
 import AmazonProduct from "../Layouts/AmazonProduct";
 import ControlButton from "../Layouts/ControlButton";
+import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Issues = () => {
+  const {id} = useParams();
+  const similar = useSelector((state) => state.similar.similars);
+  var result = []
+  if(similar !== undefined){
+      result = similar.filter(simi => simi.product_id == 19);
+  } 
   return (
     <div className="content">
       <Sidebar />
@@ -23,71 +31,25 @@ const Issues = () => {
             <div className="resultes__ISC">
               <div className="amazon__products__ISC ">
                 Amazon Products
-                <AmazonProduct show={true} />
+                <AmazonProduct id={id}  show={true} /> 
               </div>
               <div className="amazon__similar__products__Issues">
                 Amazon Similar Products
                 <div className="table__amazon__similar__products__Issues">
-                  <div className="amazon__similar__product__Issues">
-                    <img
-                      src="https://localhost:3000/Assets/product.png"
-                      alt=""
-                    />
-                    <span>
-                      Nair Hair Remover for Men Hair Remover Body Cream, 13 oz
-                    </span>
-                    <button>View</button>
-                  </div>
-                  <div className="amazon__similar__product__Issues">
-                    <img
-                      src="https://localhost:3000/Assets/product.png"
-                      alt=""
-                    />
-                    <span>
-                      Nair Hair Remover for Men Hair Remover Body Cream, 13 oz
-                    </span>
-                    <button>View</button>
-                  </div>
-                  <div className="amazon__similar__product__Issues">
-                    <img
-                      src="https://localhost:3000/Assets/product.png"
-                      alt=""
-                    />
-                    <span>
-                      Nair Hair Remover for Men Hair Remover Body Cream, 13 oz
-                    </span>
-                    <button>View</button>
-                  </div>
-                  <div className="amazon__similar__product__Issues">
-                    <img
-                      src="https://localhost:3000/Assets/product.png"
-                      alt=""
-                    />
-                    <span>
-                      Nair Hair Remover for Men Hair Remover Body Cream, 13 oz
-                    </span>
-                    <button>View</button>
-                  </div>
-                  <div className="amazon__similar__product__Issues">
-                    <img
-                      src="https://localhost:3000/Assets/product.png"
-                      alt=""
-                    />
-                    <span>
-                      Nair Hair Remover for Men Hair Remover Body Cream, 13 oz
-                    </span>
-                    <button>View</button>
-                  </div>
-                  <div className="amazon__similar__product__Issues">
-                    <img
-                      src="https://localhost:3000/Assets/product.png"
-                      alt=""
-                    />
-                    <span>
-                      Nair Hair Remover for Men Hair Remover Body Cream, 13 oz
-                    </span>
-                    <button>View</button>
-                  </div>
+                {
+                  result !== [] && result.map((element) => (
+                    <div className="amazon__similar__product__Issues">
+                      <img
+                        src={element.image}
+                        alt=""
+                      />
+                      <span>
+                        {element.name}
+                      </span>
+                      <button>View</button>
+                    </div>
+                  ))
+                }
                 </div>
               </div>
             </div>

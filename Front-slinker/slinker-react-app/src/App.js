@@ -69,7 +69,7 @@ function App() {
             <Route path="/Custom" component={Custom} />
             <Route path="/CustomLink" component={CustomLink} />
             <Route path="/Dashboard" component={Dashboard} />
-            <Route path="/Issues" component={Issues} />
+            <Route path="/Issues/:id" component={Issues} />
             <Route path="/Load" component={Load} />
             <Route path="/Pricing" component={Pricing} />
             <Route path="/ScanningProgress" component={ScanningProgress} />

@@ -1,7 +1,25 @@
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Link } from 'react-router-dom'
 
-const MetricsDetails = ({height}) => {
+const MetricsDetails = ({id , height}) => {
+    const pages = useSelector((state) => state.pages.pages);
+    const websites = useSelector((state) => state.websites.websites);
+    const products = useSelector((state) => state.products.products);
+    var result = []
+    var crawl_time = null
+    var count_links = null
+    var count_pages = null
+    if(pages !== undefined){
+        result = pages.filter(page => page.website_id == id);
+        count_pages = result.length;
+    } 
+    if(websites !== undefined){
+        crawl_time = websites.filter(website => website.id == id);
+    } 
+    if(products !== undefined){
+        count_links = products.filter(product => product.website_id == id);
+    } 
     return (
         <>
             <div className={`metrics__details__sc ${height && 'metrics__height__details__sc'}`}>
@@ -14,7 +32,7 @@ const MetricsDetails = ({height}) => {
                             </span>
                             <div>
                                 <i className="md__time__sc far fa-copy"></i>
-                                <span className="md__number__sc">110</span>
+                                <span className="md__number__sc">{count_pages !== null && count_pages}</span>
                                 <span>Pages Checked</span>
                             </div>
                         </div>
@@ -24,7 +42,7 @@ const MetricsDetails = ({height}) => {
                             </span>
                             <div>
                                 <i className="md__Date__sc fas fa-file-signature"></i>
-                                <span className="md__number__sc">220</span>
+                                <span className="md__number__sc">{count_links !== null && count_links.length}</span>
                                 <span>Links Processed</span>
                             </div>
                         </div>
@@ -49,7 +67,7 @@ const MetricsDetails = ({height}) => {
                             </span>
                             <div>
                                 <i className="md__Pages__sc fas fa-history"></i>
-                                <span className="md__number__sc">3 min</span>
+                                <span className="md__number__sc">{crawl_time !== null && crawl_time[0].crawl_time}</span>
                                 <span>Time Elapsed</span>
                             </div>
                         </div>
@@ -59,91 +77,20 @@ const MetricsDetails = ({height}) => {
             <div className={`list__sc ${height && 'list__height__sc'}`}>
                 Page List
                 <div className="page__lists__sc">
-                    <div className="page__list__sc">
-                        <span>https://eysi.net</span>
-                        <span><i className="green__ISC fas fa-circle"></i>Ready</span>
-                    </div>
-                    <hr/>
-                    <div className="page__list__sc">
-                        <span>https://eysi.net</span>
-                        <span><i className="green__ISC fas fa-circle"></i>Ready</span>
-                    </div>
-                    <hr/>
-                    <div className="page__list__sc">
-                        <span>https://eysi.net</span>
-                        <span><i className="green__ISC fas fa-circle"></i>Ready</span>
-                    </div>
-                    <hr/>
-                    <div className="page__list__sc">
-                        <span>https://eysi.net</span>
-                        <span><i className="green__ISC fas fa-circle"></i>Ready</span>
-                    </div>
-                    <hr/>
-                    <div className="page__list__sc">
-                        <span>https://eysi.net</span>
-                        <span><i className="green__ISC fas fa-circle"></i>Ready</span>
-                    </div>
-                    <hr/>
-                    <div className="page__list__sc">
-                        <span>https://eysi.net</span>
-                        <span><i className="green__ISC fas fa-circle"></i>Ready</span>
-                    </div>
-                    <hr/>
-                    <div className="page__list__sc">
-                        <span>https://eysi.net</span>
-                        <span><i className="green__ISC fas fa-circle"></i>Ready</span>
-                    </div>
-                    <hr/>
-                    <div className="page__list__sc">
-                        <span>https://eysi.net</span>
-                        <span><i className="green__ISC fas fa-circle"></i>Ready</span>
-                    </div>
-                    <hr/>
-                    <div className="page__list__sc">
-                        <span>https://eysi.net</span>
-                        <span><i className="green__ISC fas fa-circle"></i>Ready</span>
-                    </div>
-                    <hr/>
-                    <div className="page__list__sc">
-                        <span>https://eysi.net</span>
-                        <span><i className="green__ISC fas fa-circle"></i>Ready</span>
-                    </div>
-                    <hr/>
-                    <div className="page__list__sc">
-                        <span>https://eysi.net</span>
-                        <span><i className="green__ISC fas fa-circle"></i>Ready</span>
-                    </div>
-                    <hr/>
-                    <div className="page__list__sc">
-                        <span>https://eysi.net</span>
-                        <span><i className="green__ISC fas fa-circle"></i>Ready</span>
-                    </div>
-                    <hr/>
-                    <div className="page__list__sc">
-                        <span>https://eysi.net</span>
-                        <span><i className="green__ISC fas fa-circle"></i>Ready</span>
-                    </div>
-                    <hr/>
-                    <div className="page__list__sc">
-                        <span>https://eysi.net</span>
-                        <span><i className="green__ISC fas fa-circle"></i>Ready</span>
-                    </div>
-                    <hr/>
-                    <div className="page__list__sc">
-                        <span>https://eysi.net</span>
-                        <span><i className="green__ISC fas fa-circle"></i>Ready</span>
-                    </div>
-                    <hr/>
-                    <div className="page__list__sc">
-                        <span>https://eysi.net</span>
-                        <span><i className="green__ISC fas fa-circle"></i>Ready</span>
-                    </div>
-                    <hr/>
-                    <div className="page__list__sc">
-                        <span>https://eysi.net</span>
-                        <span><i className="green__ISC fas fa-circle"></i>Ready</span>
-                    </div>
-                    <hr/>
+
+                {
+                    result !== [] ? result.map((element) => (
+                        <div key={element.id}>
+                            <div className="page__list__sc">
+                                <span>{element.page_url}</span>
+                                <span><i className="green__ISC fas fa-circle"></i>Ready</span>
+                            </div>
+                            <hr/>
+                        </div>
+                        )
+                    )
+                    :"loading ...!"
+                }
                 </div>
             </div>
         </>

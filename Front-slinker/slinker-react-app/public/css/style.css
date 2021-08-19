@@ -64,6 +64,10 @@ body::-webkit-scrollbar-thumb {
   flex-direction: row;
   align-items: center;
 }
+.sidebar__img__site__content{
+  width: 20px;
+  margin-right: 10px;
+}
 
 .sidebar__menu__content {
   padding: 50px 0px;

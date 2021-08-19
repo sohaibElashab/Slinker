@@ -1,6 +1,8 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 
 const NavSearch = () => {
+    const websites = useSelector((state) => state.websites.websites);
     return (
         <div className="navbar__content">
             <div className="search__content">
@@ -9,7 +11,11 @@ const NavSearch = () => {
             </div>
             <div className="compte__content">
                 <i className="far fa-user"></i>
-                <span>3</span>
+                {websites !== undefined && websites.length > 0 ? (
+                    <span>{websites.length}</span>
+                  ) : (
+                    <></>
+                  )}
             </div>
         </div>
     )

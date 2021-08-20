@@ -1608,6 +1608,15 @@ main {
   justify-content: space-between;
   padding: 15px 30px;
 }
+.site__title__logo__sites{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.site__title__logo__sites img {
+  width: 20px;
+  margin-right: 10px;
+}
 .site__title__edit__sites {
   color: #797876;
   display: flex;

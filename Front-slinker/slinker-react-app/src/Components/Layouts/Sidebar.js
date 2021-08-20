@@ -3,47 +3,76 @@ import { useSelector } from "react-redux";
 import { Link, useHistory, useLocation } from "react-router-dom";
 
 const Sidebar = (props) => {
-  const [audit, setaudit] = useState(false);
+  const [audit, setaudit] = useState(
+    sessionStorage.getItem("audit_value")
+      ? sessionStorage.getItem("audit_value")
+      : "none"
+  );
   const [site_id, setsite] = useState(3);
-  const location = useLocation()
+  const location = useLocation();
   const websites = useSelector((state) => state.websites.websites);
   // var site_id = 0
   // if(websites !== undefined){
   //   site_id = websites[0].id
   //   console.log("siteid",site_id)
-  // } 
-  const ShowAudit = {
-    display: "block",
-  };
-  const HideAudit = {
-    display: "none",
-  };
+  // }
+  // const ShowAudit = {
+  //   display: "block",
+  // };
+  // const HideAudit = {
+  //   display: "none",
+  // };
   const ChangeAudit = () => {
-    setaudit(!audit);
+    if (audit === "none") {
+      setaudit("block");
+      sessionStorage.setItem("audit_value", "block");
+    }
+    if (audit === "block") {
+      setaudit("none");
+      sessionStorage.setItem("audit_value", "none");
+    }
   };
-  
+
+  const KeepOpen = () => {
+    setaudit("block");
+    sessionStorage.setItem("audit_value", "block");
+  };
+
   let history = useHistory();
   const setIdsite = (id) => {
     setsite(id);
-    console.log(location.pathname.split('/')[2])
-    if(location.pathname.split('/')[2] && location.pathname.split('/')[2] != id){
-      location.pathname.split('/')[1] == 'Summary' ? history.push(`/Summary/${id}`) : history.push(`/Issues/${id}`)
+    console.log(location.pathname.split("/")[2]);
+    if (
+      location.pathname.split("/")[2] &&
+      location.pathname.split("/")[2] !== id
+    ) {
+      location.pathname.split("/")[1] === "Summary"
+        ? history.push(`/Summary/${id}`)
+        : history.push(`/Issues/${id}`);
     }
-    
+
     var elems = document.querySelectorAll(".changeclass");
 
-    [].forEach.call(elems, function(el) {
-        el.classList.remove("active_menu_link__content");
+    [].forEach.call(elems, function (el) {
+      el.classList.remove("active_menu_link__content");
     });
-    document.getElementById(id).classList.add("active_menu_link__content")
-    sessionStorage.setItem("idSelector",id)
-  }
-  useEffect(() => {
-    if(sessionStorage.getItem("idSelector")){
-      // document.getElementById(sessionStorage.getItem("idSelector")).classList.add("active_menu_link__content")
-      console.log("session",sessionStorage.getItem("idSelector"))
+    document.getElementById(id).classList.add("active_menu_link__content");
+    console.log("id", id);
+    sessionStorage.setItem("idSelector", id);
+  };
+  const select = () => {
+    if (sessionStorage.getItem("idSelector")) {
+      if (document.getElementById(sessionStorage.getItem("idSelector"))) {
+        document
+          .getElementById(sessionStorage.getItem("idSelector"))
+          .classList.add("active_menu_link__content");
+      }
     }
-  }, [])
+  };
+  useEffect(() => {
+    select();
+  }, [location.pathname]);
+  select();
 
   return (
     <div id="sidebar__content">
@@ -61,22 +90,27 @@ const Sidebar = (props) => {
             Sites
           </Link>
         </div>
-        <div className="sidebar__sites__content">{
-         websites !== undefined ? websites.map((element) => (  <div
-            className="sidebar__child__link__content changeclass "
-            id={element.id}
-            key={element.id} onClick={() => setIdsite(element.id)}
-          >
-            <span className="sidebar__span__content"> 
-              <img
-                className="sidebar__img__site__content"
-                src={element.image}
-                alt=""
-              />
-                {element.name} {element.id}
-            </span>
-          </div> 
-        )):""}</div>
+        <div className="sidebar__sites__content">
+          {websites !== undefined
+            ? websites.map((element) => (
+                <div
+                  className="sidebar__child__link__content changeclass "
+                  id={element.id}
+                  key={element.id}
+                  onClick={() => setIdsite(element.id)}
+                >
+                  <span className="sidebar__span__content">
+                    <img
+                      className="sidebar__img__site__content"
+                      src={element.image}
+                      alt=""
+                    />
+                    {element.name} {element.id}
+                  </span>
+                </div>
+              ))
+            : ""}
+        </div>
         <hr />
         <div className="sidebar__link__content">
           <Link to="/Dashboard" className="sidebar__span__content">
@@ -100,14 +134,15 @@ const Sidebar = (props) => {
         </div>
         <div
           className="Affiliate__content"
-          style={audit ? ShowAudit : HideAudit}
+          // style={audit ? ShowAudit : HideAudit}
+          style={{ display: audit }}
         >
-          <div className="sidebar__child__link__content">
+          <div className="sidebar__child__link__content" onClick={KeepOpen}>
             <Link to={`/Summary/${site_id}`} className="sidebar__span__content">
               Summary
             </Link>
           </div>
-          <div className="sidebar__child__link__content">
+          <div className="sidebar__child__link__content" onClick={KeepOpen}>
             <Link to={`/Issues/${site_id}`} className="sidebar__span__content">
               Issues
             </Link>

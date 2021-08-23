@@ -54,7 +54,7 @@ const SocialLogin = ({ orType }) => {
         </span> */}
         <FacebookLogin
           className="fb__sign butn__sign"
-          textButton="Login with Facebook"
+          textButton="Facebook"
           appId= "962023414341219"
           callback={fbResponse}
         />
@@ -62,7 +62,9 @@ const SocialLogin = ({ orType }) => {
         <GoogleLogin
           className="google__sign butn__sign"
           clientId="338514051366-2l7uuqka8l7fmbe9dhim3i476k8n6889.apps.googleusercontent.com"
-          buttonText="Login with Google"
+          buttonText="Google"
+          icon={false}
+          style={{  background:'red'}}
           onSuccess={responseGoogle}
           onFailure={responseGoogle}
         />

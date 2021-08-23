@@ -45,12 +45,12 @@ const Dashboard = () => {
                 Site Health Score
                 <div className="health__diagram__dashboard"></div>
               </div>
-              <div className="products__dashboard">
+              <div className="products__dashboard none">
                 Total Products
                 <div className="products__diagram__dashboard"></div>
               </div>
             </div>
-            <div className="pages__links__dashboard">
+            <div className="pages__links__dashboard none">
               <div className="pages__dashboard">
                 Total Page
                 <div className="page__dashboard"></div>

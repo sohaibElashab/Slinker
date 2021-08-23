@@ -76,7 +76,7 @@ const Sidebar = (props) => {
 
   return (
     <div id="sidebar__content">
-      <div className="sidebar__logo__content">
+      <div className="sidebar__logo__content none">
         <img src="https://localhost:3000/Assets/Slinker logo.svg" alt="" />
       </div>
       <div className="sidebar__menu__content">
@@ -87,10 +87,10 @@ const Sidebar = (props) => {
               src="https://localhost:3000/Assets/content_icones/site.svg"
               alt=""
             />
-            Sites
+            <span className="none">Sites</span> 
           </Link>
         </div>
-        <div className="sidebar__sites__content">
+        <div className="sidebar__sites__content none">
           {websites !== undefined
             ? websites.map((element) => (
                 <div
@@ -105,13 +105,13 @@ const Sidebar = (props) => {
                       src={element.image}
                       alt=""
                     />
-                    {element.name} {element.id}
+                    {element.name}
                   </span>
                 </div>
               ))
             : ""}
         </div>
-        <hr />
+        <hr className="none" />
         <div className="sidebar__link__content">
           <Link to="/Dashboard" className="sidebar__span__content">
             <img
@@ -119,7 +119,7 @@ const Sidebar = (props) => {
               src="https://localhost:3000/Assets/content_icones/Dashboard_icon.svg"
               alt=""
             />
-            Dashboard
+            <span className="none">Dashboard</span>
           </Link>
         </div>
         <div className="sidebar__link__content">
@@ -129,7 +129,7 @@ const Sidebar = (props) => {
               src="https://localhost:3000/Assets/content_icones/audit.svg"
               alt=""
             />
-            Affiliate audit
+            <span className="none">Affiliate audit</span>
           </span>
         </div>
         <div
@@ -137,7 +137,7 @@ const Sidebar = (props) => {
           // style={audit ? ShowAudit : HideAudit}
           style={{ display: audit }}
         >
-          <div className="sidebar__child__link__content" onClick={KeepOpen}>
+          <div className="sidebar__child__link__content none" onClick={KeepOpen}>
             <Link to={`/Summary/${site_id}`} className="sidebar__span__content">
               Summary
             </Link>
@@ -148,24 +148,24 @@ const Sidebar = (props) => {
             </Link>
           </div>
         </div>
-        <div className="sidebar__link__content">
+        <div className="sidebar__link__content none">
           <span className="sidebar__span__content">
             <img
               className="sidebar__icon__content"
               src="https://localhost:3000/Assets/content_icones/monitoring.svg"
               alt=""
             />
-            Sites Monitoring
+            <span>Sites Monitoring</span>
           </span>
         </div>
-        <div className="sidebar__link__content">
+        <div className="sidebar__link__content none">
           <span className="sidebar__span__content">
             <img
               className="sidebar__icon__content"
               src="https://localhost:3000/Assets/content_icones/rank.svg"
               alt=""
             />
-            Afiiliate Rank Tracker
+            <span>Afiiliate Rank Tracker</span>
           </span>
         </div>
         <div className="sidebar__link__content">
@@ -175,28 +175,28 @@ const Sidebar = (props) => {
               src="https://localhost:3000/Assets/content_icones/link_checker.svg"
               alt=""
             />
-            Custom Link Checker
+            <span className="none">Custom Link Checker</span>
           </Link>
         </div>
-        <hr />
-        <div className="sidebar__link__content">
+        <hr className="none" />
+        <div className="sidebar__link__content none">
           <span className="sidebar__span__content">
             <img
               className="sidebar__icon__content"
               src="https://localhost:3000/Assets/content_icones/guide.svg"
               alt=""
             />
-            Watch our Guide
+            <span>Watch our Guide</span>
           </span>
         </div>
-        <div className="sidebar__link__content">
+        <div className="sidebar__link__content none">
           <Link to="/Pricing" className="sidebar__span__content">
             <img
               className="sidebar__icon__content"
               src="https://localhost:3000/Assets/content_icones/pricing.svg"
               alt=""
             />
-            Pricing
+            <span>Pricing</span>
           </Link>
         </div>
         <div className="sidebar__link__content">
@@ -206,7 +206,7 @@ const Sidebar = (props) => {
               src="https://localhost:3000/Assets/content_icones/gethelp.svg"
               alt=""
             />
-            Get Help
+            <span className="none">Get Help</span>
           </span>
         </div>
       </div>

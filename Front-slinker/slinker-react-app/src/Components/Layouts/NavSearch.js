@@ -10,12 +10,15 @@ const NavSearch = () => {
                 <input type="text" name="" id="" placeholder="Search" />
             </div>
             <div className="compte__content">
-                <i className="far fa-user"></i>
-                {websites !== undefined && websites.length > 0 ? (
-                    <span>{websites.length}</span>
-                  ) : (
-                    <></>
-                  )}
+                <img src="https://localhost:3000/Assets/logo Slinker 2.png" className="nonerevers"></img>
+                <div>
+                    <i className="far fa-user"></i>
+                    {websites !== undefined && websites.length > 0 ? (
+                        <span>{websites.length}</span>
+                    ) : (
+                        <></>
+                    )} 
+                </div>
             </div>
         </div>
     )

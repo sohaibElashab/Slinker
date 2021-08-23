@@ -13,7 +13,7 @@ const Load = () => {
       <span className="ouro ouro3">
         <span className="left">
           <span className="anim"></span>
-        </span>
+        </span> 
         <span className="right">
           <span className="anim"></span>
         </span>

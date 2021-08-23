@@ -128,6 +128,7 @@ body::-webkit-scrollbar-thumb {
   height: 10vh;
   width: 100%;
   display: flex;
+  background: white;
   align-items: center;
   justify-content: space-between;
   padding: 0px 30px;
@@ -156,10 +157,15 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   align-items: flex-end;
 }
-.compte__content i {
+.compte__content > div {
+  
+  display: flex;
+  align-items: flex-end;
+}
+.compte__content > div > i {
   font-size: 26px;
 }
-.compte__content span {
+.compte__content  div  span {
   background: #c5add2;
   color: #fff;
   padding: 0px 5px;
@@ -210,7 +216,7 @@ body::-webkit-scrollbar-thumb {
 }
 .left__section__item__sign {
   width: 70%;
-  height: 60%;
+  height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -281,13 +287,20 @@ body::-webkit-scrollbar-thumb {
   justify-content: space-evenly;
   align-items: center;
 }
+.google__sign , .kep-login-facebook {
+  width: 200px;
+  font-family: var(--font-primary) !important;
+  justify-content: center !important;
+  font-weight: 500 !important ;
+  text-transform: uppercase !important ;
+}
 .google__sign {
   background: #fff;
   color: #847b7f;
   border: 1px solid #847b7f;
 }
 .or__login__sign {
-  margin: 40px 0px;
+  margin: 50px 0px;
 }
 .or__register__sign {
   margin: 10px 0px;
@@ -470,10 +483,13 @@ body::-webkit-scrollbar-thumb {
 
 .terms__login__sign {
   margin-top: 50px;
+  display: none;
 }
 .terms__register__sign {
   margin-top: 30px;
+  display: none;
 }
+
 
 .anchor__custom__sign {
   text-decoration: none;
@@ -667,7 +683,7 @@ form .form-row .textarea {
 .form-btn button {
   border-radius: 5px;
   padding: 15px 50px;
-  margin: 30px 18px 0px 0px;
+  margin: 50px 30px 0px 0px;
   display: inline-block;
   font-size: 17px;
   line-height: 20px;
@@ -1037,6 +1053,7 @@ form .form-row .textarea {
 main {
   height: 100vh;
   width: 80vw;
+  background: #f9fafb;
   display: flex;
   flex-direction: column;
 }
@@ -1676,16 +1693,13 @@ main {
 /* ------------------------------------------- Dashboard css ------------------------------------------- */
 
 .main__dashboard {
-  height: 90vh;
   width: 100%;
   display: flex;
   flex-direction: column;
-  background: #f9fafb;
   box-shadow: 0px 10px 20px 0px rgb(0 0 0 / 5%) inset;
 }
 .content__dashboard {
   width: 100%;
-  height: 80vh;
 }
 .sites__dashboard {
   height: 20%;
@@ -1695,6 +1709,7 @@ main {
   align-items: center;
   padding: 0px 30px;
   overflow-x: scroll;
+  padding: 0px 30px 10px;
 }
 .sites__dashboard::-webkit-scrollbar {
   height: 5px;
@@ -1705,7 +1720,7 @@ main {
 }
 .site__dashnoard {
   display: flex;
-  height: 80px;
+  height: 70px;
   align-items: center;
   padding: 10px;
   background: #fff;
@@ -1805,6 +1820,7 @@ main {
   display: flex;
   flex-direction: row;
   margin: 5px 10px;
+  justify-content: space-between;
 }
 .button__control__recherch__dashboard {
   background: #31ba86;
@@ -1822,26 +1838,26 @@ main {
   display: flex;
   align-items: center;
   flex-direction: column;
-  font-size: 1em;
+  font-size: 10px;
   line-height: initial;
   justify-content: center;
   cursor: pointer;
-  padding: 10px 0px;
-  margin: 0px 10px 0px 10px;
+  padding: 10px 10px;
+  /* margin: 0px 10px 0px 10px; */
 }
 .control__dashboard i {
-  font-size: 1.5em;
+  font-size: 20px;
   transform: matrix(-1, 0, 0, 1, 0, 0);
   padding-bottom: 10px;
 }
 .button__control__upgrade__dashboard {
   height: 50%;
-  width: 80%;
+  width: 100%;
   background-image: url(../Assets/upgrad_cover.png);
   background-size: cover;
   box-shadow: 0px 15px 50px rgb(87 105 177 / 6%);
   border-radius: 10px;
-  font-size: 0.9em;
+  font-size: 10px;
   line-height: 25px;
   text-align: center;
   color: #ffffff;
@@ -1853,13 +1869,13 @@ main {
   margin: 5px 10px;
 }
 .button__control__upgrade__dashboard button {
-  width: 140px;
-  /* height: 39px; */
+  width: 90px;
+  height: 25px;
   background: #ffffff;
   border-radius: 10px;
   border: none;
   color: var(--main-bg-color);
-  padding: 4px 0px;
+  /* padding: 4px 0px; */
 }
 
 /* ------------------------------------------- load css ------------------------------------------- */

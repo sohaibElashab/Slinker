@@ -9,7 +9,8 @@ import { useParams } from 'react-router-dom'
 
 const Summary = () => {
     
-    const {id} = useParams();
+    const {id} = useParams(); 
+    const GetSimilar = (i) => {}
     return (
     <div className="content">
         <Sidebar/>
@@ -27,9 +28,9 @@ const Summary = () => {
                         <div className="resultes__ISC">
                             <div className="amazon__products__ISC amazon__products__I">
                                 Amazon Products
-                                <AmazonProduct id={id} show={false}/>
+                                <AmazonProduct id={id} show={false} GetSimilar={GetSimilar}/>
                             </div>
-                            <div className="metrics__details__list__sc">
+                            <div className="metrics__details__list__sc none">
                                 <MetricsDetails id={id} height={false}/>
                             </div>
                         </div>

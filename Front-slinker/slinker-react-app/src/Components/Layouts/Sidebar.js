@@ -68,6 +68,12 @@ const Sidebar = (props) => {
           .classList.add("active_menu_link__content");
       }
     }
+    if(websites !== undefined){
+      if(document.getElementById(websites[0].id) && !sessionStorage.getItem("idSelector")){
+        document.getElementById(websites[0].id).classList.add("active_menu_link__content")
+        sessionStorage.setItem("idSelector", websites[0].id);
+      }
+    }
   };
   useEffect(() => {
     select();

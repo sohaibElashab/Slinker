@@ -33,7 +33,7 @@ const MetricsDetails = ({id , height}) => {
                             <div>
                                 <i className="md__time__sc far fa-copy"></i>
                                 <span className="md__number__sc">{count_pages !== null && count_pages}</span>
-                                <span>Pages Checked</span>
+                                <span className="spanDetails">Pages Checked</span>
                             </div>
                         </div>
                         <div className="md__sc">
@@ -43,7 +43,7 @@ const MetricsDetails = ({id , height}) => {
                             <div>
                                 <i className="md__Date__sc fas fa-file-signature"></i>
                                 <span className="md__number__sc">{count_links !== null && count_links.length}</span>
-                                <span>Links Processed</span>
+                                <span className="spanDetails">Links Processed</span>
                             </div>
                         </div>
                     </div>
@@ -58,7 +58,7 @@ const MetricsDetails = ({id , height}) => {
                             <div>
                                 <i className="md__Processed__sc far fa-calendar-alt"></i>
                                 <span className="md__number__sc">03/20</span>
-                                <span>Crawling Date Started</span>
+                                <span className="spanDetails">Crawling Date Started</span>
                             </div>
                         </div>
                         <div className="md__sc">
@@ -68,7 +68,7 @@ const MetricsDetails = ({id , height}) => {
                             <div>
                                 <i className="md__Pages__sc fas fa-history"></i>
                                 <span className="md__number__sc">{crawl_time !== null && crawl_time[0].crawl_time}</span>
-                                <span>Time Elapsed</span>
+                                <span className="spanDetails">Time Elapsed</span>
                             </div>
                         </div>
                     </div>

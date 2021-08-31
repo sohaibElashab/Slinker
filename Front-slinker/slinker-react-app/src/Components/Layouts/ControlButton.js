@@ -27,7 +27,7 @@ const ControlButton = ({big}) => {
                             </div>
                         </div>
             }
-            <div className={` ${big ? 'button__control__upgrade__ISC' : 'button__control__upgrade__dashboard'}`}>
+            <div className={` ${big ? 'button__control__upgrade__ISC none' : 'button__control__upgrade__dashboard'}`}>
                 Improve Managment by upgrading your account
                 <button>Upgrade</button>
             </div>

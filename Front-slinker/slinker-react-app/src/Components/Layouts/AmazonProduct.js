@@ -98,7 +98,7 @@ const AmazonProduct = ({ show, id, GetSimilar }) => {
               <div
                 className="amazon__product__ISC"
                 key={element.id}
-                onClick={() => GetSimilar(element.id)}
+                onClick={() => GetSimilar(element.id)} 
                 style={{ cursor: "pointer" }}
               >
                 {show && (

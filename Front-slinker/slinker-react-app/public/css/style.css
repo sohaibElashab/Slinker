@@ -1742,6 +1742,7 @@ main {
 .active__site__dashboard .site__logo__dashnoard .bg__logo__dashboard {
   background-image: url(./../Assets/active-site-dashboard.png) !important;
   height: 42px;
+  margin: 10px 0px;
   width: 65px;
 }
 .bg__logo__dashboard {

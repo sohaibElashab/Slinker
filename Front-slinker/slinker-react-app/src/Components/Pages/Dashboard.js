@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Sidebar from '../Layouts/Sidebar'
 import ControlButton from '../Layouts/ControlButton'
 import { useSelector } from 'react-redux';
@@ -8,6 +8,24 @@ import {Bar, defaults, Doughnut, Line} from 'react-chartjs-2'
 
 const Dashboard = () => {
   const websites = useSelector((state) => state.websites.websites);
+  const Idsite = (id) => {
+    var elems = document.querySelectorAll(".change__site__dashboard");
+
+    [].forEach.call(elems, function (el) {
+      el.classList.remove("active__site__dashboard");
+    });
+    document.getElementById("site"+id).classList.add("active__site__dashboard");
+  };
+  const selectSiteDash = () => {
+    if(websites !== undefined){
+      if(document.getElementById("site"+websites[0].id))
+        console.log(document.getElementById("site"+websites[0].id).classList.add("active__site__dashboard"))
+    }
+  };
+  useEffect(() => {
+    selectSiteDash();
+  }, []);
+  selectSiteDash();
   return (
     <div className="content">
     <Sidebar/>
@@ -19,7 +37,7 @@ const Dashboard = () => {
           </div>
           <div className="content__dashboard">
             <div className="sites__dashboard">
-              <div className="site__dashnoard active__site__dashboard">
+              {/* <div className="site__dashnoard active__site__dashboard">
                 <div className="site__logo__dashnoard ">
                   <div className="bg__logo__dashboard"></div>
                 </div>
@@ -27,10 +45,13 @@ const Dashboard = () => {
                   Eysi.net
                   <span>Site Health Score</span>
                 </div>
-              </div>
+              </div> */}
               {
                 websites !== undefined ? websites.map((element) => (
-                  <div className="site__dashnoard" key={element.id}>
+                  <div className="site__dashnoard change__site__dashboard" 
+                    key={element.id}
+                    id={"site"+element.id}
+                    onClick={() => Idsite(element.id)}>
                     <div className="site__logo__dashnoard ">
                       <div className="bg__logo__dashboard"></div>
                     </div>
@@ -51,8 +72,8 @@ const Dashboard = () => {
                             labels: ['Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'Mai' , 'Jun' , 'Jul'],
                             datasets: [
                                 {
-                                    label: '# of Votes',
-                                    data: [12, 19, 3, 5, 2, 3 , 7 , 16],
+                                    label: 'Site Health',
+                                    data: [22, 19, 43, 50, 92, 36 , 72 , 16],
                                     backgroundColor: [
                                         'rgba(80, 62, 157, 1)',
                                     ],
@@ -102,9 +123,12 @@ const Dashboard = () => {
                             labels: ['Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'Mai' , 'Jun' , 'Jul'],
                             datasets: [
                                 {
-                                    label: '# of Votes',
-                                    data: [12, 19, 3, 5, 2, 3 , 7 , 16],
+                                    label: 'Total Page',
+                                    data: [100, 19, 43, 50, 92, 36 , 72 , 16],
                                     backgroundColor: [
+                                        'rgba(80, 62, 157, 1)',
+                                    ],
+                                    borderColor: [
                                         'rgba(80, 62, 157, 1)',
                                     ],
                                     borderWidth: 1

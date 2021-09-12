@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from 'react-router-dom'
 
-const MetricsDetails = ({id , height}) => {
+const MetricsDetails = ({id , height , pdf}) => {
     const pages = useSelector((state) => state.pages.pages);
     const websites = useSelector((state) => state.websites.websites);
     const products = useSelector((state) => state.products.products);
@@ -22,26 +22,26 @@ const MetricsDetails = ({id , height}) => {
     } 
     return (
         <>
-            <div className={`metrics__details__sc ${height && 'metrics__height__details__sc'}`}>
+            <div className={`page-break metrics__details__sc ${height && 'metrics__height__details__sc'}`}>
                 <div className="mds__sc">
                     <span>Site Metrics</span>
                     <div>
-                        <div className="md__sc">
-                            <span className="point__ISC">
+                        <div className={`md__sc ${pdf && "pdf__border"}`}>
+                            <span className={`point__ISC ${pdf && "pdf__none"}`}>
                                 <i className="fas fa-ellipsis-h"></i>
                             </span>
                             <div>
-                                <i className="md__time__sc far fa-copy"></i>
+                                <i className={`md__time__sc far fa-copy ${pdf && "pdf__none"}`} ></i>
                                 <span className="md__number__sc">{count_pages !== null && count_pages}</span>
                                 <span className="spanDetails">Pages Checked</span>
                             </div>
                         </div>
-                        <div className="md__sc">
-                            <span className="point__ISC">
+                        <div className={`md__sc ${pdf && "pdf__border"}`}>
+                            <span className={`point__ISC ${pdf && "pdf__none"}`}>
                                 <i className="fas fa-ellipsis-h"></i>
                             </span>
                             <div>
-                                <i className="md__Date__sc fas fa-file-signature"></i>
+                                <i className={`md__Date__sc fas fa-file-signature ${pdf && "pdf__none"}`}  ></i>
                                 <span className="md__number__sc">{count_links !== null && count_links.length}</span>
                                 <span className="spanDetails">Links Processed</span>
                             </div>
@@ -51,22 +51,22 @@ const MetricsDetails = ({id , height}) => {
                 <div className="mds__sc">
                     <span>Crawl Details</span>
                     <div>
-                        <div className="md__sc">
-                            <span className="point__ISC">
+                        <div className={`md__sc ${pdf && "pdf__border"}`}>
+                            <span className={`point__ISC ${pdf && "pdf__none"}`}>
                                 <i className="fas fa-ellipsis-h"></i>
                             </span>
                             <div>
-                                <i className="md__Processed__sc far fa-calendar-alt"></i>
+                                <i className={`md__Processed__sc far fa-calendar-alt ${pdf && "pdf__none"}`} ></i>
                                 <span className="md__number__sc">03/20</span>
                                 <span className="spanDetails">Crawling Date Started</span>
                             </div>
                         </div>
-                        <div className="md__sc">
-                            <span className="point__ISC">
+                        <div className={`md__sc ${pdf && "pdf__border"}`}>
+                            <span className={`point__ISC ${pdf && "pdf__none"}`}>
                                 <i className="fas fa-ellipsis-h"></i>
                             </span>
                             <div>
-                                <i className="md__Pages__sc fas fa-history"></i>
+                                <i className={`md__Pages__sc fas fa-history ${pdf && "pdf__none"}`} ></i>
                                 <span className="md__number__sc">{crawl_time !== null && crawl_time[0].crawl_time}</span>
                                 <span className="spanDetails">Time Elapsed</span>
                             </div>

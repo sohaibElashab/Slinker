@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 // import { Link } from "react-router-dom";
 
-const AmazonProduct = ({ show, id, GetSimilar }) => {
+const AmazonProduct = ({ show, id, GetSimilar ,pdf }) => {
   const products = useSelector((state) => state.products.products);
   const [list, setlist] = useState(products);
   const [AFlist, setAFlist] = useState([]);
@@ -38,7 +38,7 @@ const AmazonProduct = ({ show, id, GetSimilar }) => {
   return (
     <div className="table__amazon__products__ISC">
       <div className="amazon__products__header__ISC">
-        <div className="table__filter__ISC">
+        <div className={`table__filter__ISC ${pdf && "pdf__none"}`}>
           <div
             className="products__status__ISC"
             className={`products__status__ISC ${

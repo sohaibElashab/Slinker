@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
 
-const ControlButton = ({big}) => {
+const ControlButton = ({big , exportAmazonProduct}) => {
     return (
         <div className={` ${big ? 'button__control__ISC' : 'button__control__dashboard'}`}>
             {
@@ -10,10 +10,10 @@ const ControlButton = ({big}) => {
                                 <i className="fas fa-redo-alt"></i>
                                 <span>Recheck</span>
                             </div>
-                            <div className="control__ISC button__control__download__ISC">
+                            <button className="control__ISC button__control__download__ISC" onClick={exportAmazonProduct}>
                                 <i className="fas fa-download"></i>
                                 <span>Download</span>
-                            </div>
+                            </button>
                         </>
                         :
                         <div className="control__button__dashboard">
@@ -21,10 +21,10 @@ const ControlButton = ({big}) => {
                                 <i className="fas fa-redo-alt"></i>
                                 <span>Recheck</span>
                             </div>
-                            <div className="control__dashboard button__control__download__dashboard">
+                            <button className="control__dashboard button__control__download__dashboard"  onClick={exportAmazonProduct}>
                                 <i className="fas fa-download"></i>
                                 <span>Download</span>
-                            </div>
+                            </button>
                         </div>
             }
             <div className={` ${big ? 'button__control__upgrade__ISC none' : 'button__control__upgrade__dashboard'}`}>

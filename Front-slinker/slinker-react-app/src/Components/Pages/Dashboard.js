@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Sidebar from '../Layouts/Sidebar'
 import ControlButton from '../Layouts/ControlButton'
 import { useSelector } from 'react-redux';
 import NavSearch from '../Layouts/NavSearch';
 import {Bar, defaults, Doughnut, Line} from 'react-chartjs-2'
+import { PDFExport } from "@progress/kendo-react-pdf";
 
 
 const Dashboard = () => {
@@ -26,6 +27,14 @@ const Dashboard = () => {
     selectSiteDash();
   }, []);
   selectSiteDash();
+  
+  const AmazonProductSection = useRef(null)
+
+  const exportAmazonProduct = (event) =>{
+      // savePDF(AmazonProductSection.current , {paperSize : 'A4'});
+      AmazonProductSection.current.save();
+      console.log("pdf");
+  }
   return (
     <div className="content">
     <Sidebar/>
@@ -167,11 +176,114 @@ const Dashboard = () => {
 
                 </div>
               </div>
-              <ControlButton big={false}/>
+              <ControlButton big={false} exportAmazonProduct={exportAmazonProduct}/>
             </div>
           </div>
         </div>
       </main>
+      <div className="pdf__summary">
+          <PDFExport forcePageBreak=".page-break"  ref={AmazonProductSection} paperSize="A4">
+              <div 
+                style={{
+                  width: "500px",
+                  height: "400px",
+                  margin: "50px auto",
+                }}>
+                <div className="health__diagram__dashboard">
+                Site Health Score
+                  <Bar 
+                        data={{
+                            labels: ['Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'Mai' , 'Jun' , 'Jul'],
+                            datasets: [
+                                {
+                                    label: 'Site Health',
+                                    data: [22, 19, 43, 50, 92, 36 , 72 , 16],
+                                    backgroundColor: [
+                                        'rgba(80, 62, 157, 1)',
+                                    ],
+                                    borderWidth: 1
+                                }
+                            ]
+                        }}
+                        height={200}
+                        width={100}
+                        options={{ maintainAspectRatio: false }}
+                    />
+                </div>
+                <div className="products__diagram__dashboard page-break">
+                Total Products
+                  <Doughnut 
+                        data={{
+                            labels: ['Available', 'Unavailable', 'Error 404'],
+                            datasets: [
+                                {
+                                    label: '# of Votes',
+                                    data: [12, 19, 3],
+                                    backgroundColor: [
+                                        '#503E9D',
+                                        '#C5ADD2',
+                                        '#DBDCEA',
+                                    ],
+                                    borderWidth: 1
+                                }
+                            ]
+                        }}
+                        height={200}
+                        width={100}
+                        options={{ maintainAspectRatio: false }}
+                    />
+                </div>
+                <div className="page__dashboard page-break">
+                Total Page
+                  <Line 
+                        data={{
+                            labels: ['Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'Mai' , 'Jun' , 'Jul'],
+                            datasets: [
+                                {
+                                    label: 'Total Page',
+                                    data: [100, 19, 43, 50, 92, 36 , 72 , 16],
+                                    backgroundColor: [
+                                        'rgba(80, 62, 157, 1)',
+                                    ],
+                                    borderColor: [
+                                        'rgba(80, 62, 157, 1)',
+                                    ],
+                                    borderWidth: 1
+                                }
+                            ]
+                        }}
+                        height={200}
+                        width={100}
+                        options={{ maintainAspectRatio: false }}
+                    />
+                </div>
+                <div className="link__dashboard page-break">
+                Total Links
+                  <Doughnut 
+                        data={{
+                            labels: ['Available', 'Unavailable', 'Error 404'],
+                            datasets: [
+                                {
+                                    label: '# of Votes',
+                                    data: [12, 19, 3],
+                                    backgroundColor: [
+                                        '#503E9D',
+                                        '#C5ADD2',
+                                        '#DBDCEA',
+                                    ],
+                                    borderWidth: 1
+                                }
+                            ]
+                        }}
+                        height={200}
+                        width={100}
+                        options={{ maintainAspectRatio: false }}
+                    />
+                </div>
+              
+              </div>
+          </PDFExport>
+      </div>
     </div>
   )
 }

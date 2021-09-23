@@ -7,6 +7,8 @@ import AmazonProduct from '../Layouts/AmazonProduct'
 import MetricsDetails from '../Layouts/MetricsDetails'
 
 const Custom = () => {
+
+    const GetSimilar = (i) => {}
     return (
     <div className="content">
         <Sidebar/>
@@ -30,11 +32,11 @@ const Custom = () => {
                             <button>Insert</button>
                         </div>
                         </div>
-                        <MetricsDetails height={true}/>
+                        <MetricsDetails id={4} height={true}/>
                     </div>
-                    <div className="amazon__products__ISC amazon__products__I">
+                    <div className="amazon__products__ISC amazon__products__I none">
                         Amazon Products
-                        <AmazonProduct show={false}/>
+                        <AmazonProduct id={3} show={false} GetSimilar={GetSimilar}/>
                     </div>
                     </div>
                 </div>

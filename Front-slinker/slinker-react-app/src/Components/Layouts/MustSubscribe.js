@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 const MustSubscribe = ({red}) => {
     return (
         <div className="must__subscribe__ISC">
-            <span className="point__ISC">
-                <i className="fas fa-ellipsis-h"></i>
+            <span className="point__ISC none">
+                <i className="fas fa-ellipsis-h "></i>
             </span>
             {
                 red ? <span className="must__subscribe__title__ISC red__ISC">

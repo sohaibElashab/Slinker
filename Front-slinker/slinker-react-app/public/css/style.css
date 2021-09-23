@@ -198,6 +198,9 @@ body::-webkit-scrollbar-thumb {
   text-decoration-line: underline;
   color: var(--main-bg-color);
 }
+.title__content button:focus-visible,.title__content button:focus {
+  outline: none;
+}
 /* .Affiliate__content{
   display: none;
 } */
@@ -1135,7 +1138,11 @@ main {
   font-size: 1.4em;
   line-height: initial;
   justify-content: center;
+  border: none;
   cursor: pointer;
+}
+.control__ISC:focus, .control__ISC:focus-visible , .control__dashboard:focus-visible , .control__dashboard:focus {
+  outline: none;
 }
 .control__ISC i {
   font-size: 1.5em;
@@ -1318,11 +1325,28 @@ main {
   background-color: #9b92c1;
   border-radius: 10px;
 }
+.pdf__summary{
+  position: absolute;
+  left: -1000px;
+  top: 0;
+}
+.pdf__none{
+  display:none !important;
+}
+.pdf__border{
+  border: 1px solid #9b92c1;
+  padding: 10px;
+}
+.amazon__products__pdf__summary{
+  width: 80% !important;
+  margin: 50px auto;
+}
+
 
 /* ------------------------------------------- site & custom link css ------------------------------------------- */
 
 .amazon__products__I {
-  width: 50% !important;
+  width: 50%;
 }
 .amazon__product__ISC span {
   width: 15%;
@@ -1571,8 +1595,11 @@ main {
   margin-top: 10px;
 }
 .amazon__similar__product__Issues img {
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
+}
+.amazon__similar__product__Issues span {
+  padding: 0px 5px 0px 10px;
 }
 .amazon__similar__product__Issues button {
   background: #425f9e;
@@ -1689,6 +1716,30 @@ main {
 .gris__sites {
   color: #797876;
 }
+.add__site__sites{    
+  height: 90%;
+  position: absolute;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  background: #00000026;
+  justify-content: center;
+}
+.display__add__sites{
+  display: none;
+}
+.hidde__add{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+.section__add{
+  height: 70px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
 
 /* ------------------------------------------- Dashboard css ------------------------------------------- */
 
@@ -1739,6 +1790,7 @@ main {
 .active__site__dashboard .site__logo__dashnoard .bg__logo__dashboard {
   background-image: url(./../Assets/active-site-dashboard.png) !important;
   height: 42px;
+  margin: 10px 0px;
   width: 65px;
 }
 .bg__logo__dashboard {
@@ -1774,6 +1826,9 @@ main {
   background: #ffffff;
   box-shadow: 0px 15px 50px rgba(87, 105, 177, 0.1);
   border-radius: 15px;
+}
+.health__diagram__dashboard canvas{
+  
 }
 .health__dashboard {
   width: 60%;
@@ -1843,6 +1898,7 @@ main {
   justify-content: center;
   cursor: pointer;
   padding: 10px 10px;
+  border: none;
   /* margin: 0px 10px 0px 10px; */
 }
 .control__dashboard i {

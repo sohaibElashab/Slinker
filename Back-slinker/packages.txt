@@ -19,3 +19,7 @@ cors => pip install django-cors-headers
 #google login
 react-google-login => npm install react-google-login
 google-api-python-client => pip install google-api-python-client
+
+scrapy
+pip install scrapy
+pip install scrapy-useragents
